@@ -1,720 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="f.css">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PortFolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Moshek Shaju Jones | Java Developer & Graduate Trainee @ TCS</title>
+  <meta name="description" content="Portfolio of Moshek Shaju Jones J — Java Developer, Spring Boot Enthusiast, Incoming Graduate Trainee at TCS. 1000+ LinkedIn connections, verified professional with 12+ certifications.">
+  <meta name="theme-color" content="#0a0c10">
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0c10;
+      color: #f1f5f9;
+      transition: background 0.3s ease, color 0.2s ease;
+      overflow-x: hidden;
+    }
+    :root {
+      --bg-primary: #0a0c10;
+      --bg-secondary: #111827;
+      --bg-card: rgba(17, 24, 39, 0.85);
+      --bg-card-solid: #111827;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.25);
+      --accent-hover: #2563eb;
+      --border-light: rgba(255, 255, 255, 0.08);
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 20px 30px -12px rgba(0, 0, 0, 0.4);
+      --gradient-bg: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.08) 0%, rgba(0, 0, 0, 0.3) 90%);
+      --badge-bg: rgba(59, 130, 246, 0.2);
+      --badge-text: #3b82f6;
+      --chat-bg: #1e293b;
+      --chat-user-bg: #3b82f6;
+      --chat-bot-bg: #334155;
+    }
+    body.light {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-solid: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --accent: #2563eb;
+      --accent-glow: rgba(37, 99, 235, 0.15);
+      --border-light: rgba(0, 0, 0, 0.05);
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      --gradient-bg: radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.03) 0%, rgba(0, 0, 0, 0.02) 90%);
+      --badge-bg: #e0e7ff;
+      --badge-text: #1e40af;
+      --chat-bg: #f1f5f9;
+      --chat-user-bg: #2563eb;
+      --chat-bot-bg: #e2e8f0;
+    }
+    html { scroll-behavior: smooth; }
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border-radius: 1.75rem;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glass-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .navbar {
+      background: rgba(10, 12, 16, 0.85);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    body.light .navbar { background: rgba(255, 255, 255, 0.85); }
+    .navbar.scrolled { padding: 0.5rem 0; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
+    .nav-link { font-weight: 500; color: var(--text-primary) !important; margin: 0 0.5rem; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent) !important; }
+    .hero-section { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .floating-bg { position: absolute; width: 100%; height: 100%; z-index: -1; background: var(--gradient-bg); }
+    
+    .profile-wrapper { position: relative; display: inline-block; }
+    .profile-img { width: 280px; height: 280px; object-fit: cover; border-radius: 50%; border: 3px solid var(--accent); box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .profile-img:hover { transform: scale(1.02); box-shadow: 0 25px 40px -12px var(--accent-glow); }
+    .photo-verified-badge { position: absolute; bottom: 12px; right: 12px; background: #0a0c10; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 2px solid var(--accent); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); cursor: help; transition: transform 0.2s ease, filter 0.2s ease; backdrop-filter: blur(2px); }
+    .photo-verified-badge i { font-size: 22px; color: var(--accent); }
+    .photo-verified-badge:hover { transform: scale(1.1); filter: drop-shadow(0 0 4px var(--accent-glow)); }
+    .photo-verified-badge[data-tooltip]:before { content: attr(data-tooltip); position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); background: #1e293b; color: #f1f5f9; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 500; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.2s; z-index: 10; font-family: 'Inter', sans-serif; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    .photo-verified-badge[data-tooltip]:hover:before { opacity: 1; }
+    .trainee-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--badge-bg); color: var(--badge-text); padding: 6px 14px; border-radius: 40px; font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(4px); transition: all 0.2s; }
+    body.light .trainee-badge { border: 1px solid rgba(37, 99, 235, 0.2); }
+    @media (max-width: 768px) { .profile-img { width: 200px; height: 200px; } .photo-verified-badge { width: 32px; height: 32px; bottom: 8px; right: 8px; } .photo-verified-badge i { font-size: 18px; } .trainee-badge { font-size: 0.75rem; padding: 4px 12px; } }
+    @media (max-width: 480px) { .photo-verified-badge { width: 28px; height: 28px; bottom: 5px; right: 5px; } .photo-verified-badge i { font-size: 16px; } }
 
+    .typewriter-text { font-size: 2rem; font-weight: 700; border-right: 3px solid var(--accent); white-space: nowrap; overflow: hidden; display: inline-block; animation: blinkCursor 0.75s step-end infinite; }
+    @keyframes blinkCursor { 50% { border-color: transparent; } }
+    .rotating-title { min-height: 4.5rem; }
+    @media (max-width: 768px) { .typewriter-text { font-size: 1.3rem; white-space: normal; border-right: none; animation: none; } }
+    
+    .skill-bar-bg { background: rgba(255, 255, 255, 0.1); border-radius: 1rem; height: 8px; overflow: hidden; }
+    .skill-bar-fill { background: var(--accent); width: 0%; height: 100%; border-radius: 1rem; transition: width 1.2s cubic-bezier(0.22, 0.97, 0.36, 1.02); }
+    .skill-item { transition: transform 0.2s ease, background 0.2s; padding: 4px 8px; border-radius: 12px; }
+    .skill-item:hover { transform: translateX(6px); background: rgba(59, 130, 246, 0.08); }
+    .skill-percent { font-weight: 600; transition: all 0.3s; }
+    
+    .project-card { background: var(--bg-card-solid); border-radius: 1.5rem; overflow: hidden; transition: all 0.4s; border: 1px solid var(--border-light); height: 100%; }
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 25px 40px -12px rgba(59, 130, 246, 0.25); border-color: var(--accent); }
+    .project-img { height: 200px; object-fit: cover; width: 100%; transition: transform 0.5s; }
+    .project-card:hover .project-img { transform: scale(1.03); }
+    .timeline-item { position: relative; padding-left: 2rem; margin-bottom: 2rem; }
+    .timeline-dot { position: absolute; left: 0; top: 0.3rem; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 4px var(--accent-glow); }
+    .timeline-content { background: var(--bg-card); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light); }
+    .theme-toggle { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 2rem; padding: 0.5rem 1.2rem; cursor: pointer; transition: all 0.2s; color: var(--text-primary); }
+    .counter-number { font-size: 2.2rem; font-weight: 800; color: var(--accent); }
+    .btn-primary-custom { background: var(--accent); border: none; padding: 0.7rem 1.8rem; border-radius: 2rem; font-weight: 500; transition: all 0.25s; color: white; }
+    .btn-primary-custom:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5); }
+    .btn-outline-accent { border: 1px solid var(--accent); background: transparent; border-radius: 2rem; padding: 0.7rem 1.8rem; color: var(--accent); transition: all 0.25s; }
+    .btn-outline-accent:hover { background: var(--accent); color: white; transform: translateY(-2px); }
+    .contact-glass { background: var(--bg-card); backdrop-filter: blur(12px); border-radius: 2rem; border: 1px solid var(--border-light); }
+    .social-icon-circle { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.05); transition: all 0.2s; color: var(--text-secondary); }
+    .social-icon-circle:hover { background: var(--accent); color: white; transform: translateY(-3px); }
+    .cert-badge { background: rgba(59, 130, 246, 0.1); border-radius: 2rem; padding: 0.3rem 0.9rem; font-size: 0.75rem; display: inline-block; margin: 0.2rem; }
+    .credential-link { color: var(--accent); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: opacity 0.2s; }
+    .credential-link:hover { text-decoration: underline; opacity: 0.8; }
+    footer { background: var(--bg-secondary); border-top: 1px solid var(--border-light); }
 
+    body.light .badge.bg-dark, body.light .bg-dark { background: #e2e8f0 !important; color: #0f172a !important; }
+    body.light .text-secondary { color: #475569 !important; }
+    body.light .text-primary { color: #1d4ed8 !important; }
+    body.light .timeline-content p, body.light .project-card p, body.light .glass-card p, body.light .contact-glass p, body.light .project-card .small { color: #334155 !important; }
+    body.light .badge.bg-info, body.light .badge.bg-info.bg-opacity-25 { background: #dbeafe !important; color: #1e3a8a !important; }
+    body.light .cert-badge { background: #dbeafe !important; color: #1e3a8a !important; }
+    body.light .social-icon-circle { background: #e2e8f0 !important; color: #334155 !important; }
+    body.light .social-icon-circle:hover { background: var(--accent) !important; color: white !important; }
+    body.light input, body.light textarea { color: #0f172a !important; }
+    body.light input::placeholder, body.light textarea::placeholder { color: #64748b !important; }
+    body.light .navbar-toggler-icon { filter: invert(1); }
 
-
+    .chatbot-widget { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
+    .chat-toggle { width: 56px; height: 56px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.2s, background 0.2s; color: white; font-size: 28px; animation: glowPulse 2s infinite; }
+    @keyframes glowPulse { 0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); } 70% { box-shadow: 0 0 0 12px rgba(59, 130, 246, 0); } 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); } }
+    .chat-toggle:hover { transform: scale(1.05); background: var(--accent-hover); animation: none; }
+    .chat-window { position: absolute; bottom: 72px; right: 0; width: 400px; height: 550px; background: var(--bg-card-solid); backdrop-filter: blur(12px); border-radius: 1.5rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-md); display: flex; flex-direction: column; overflow: hidden; transition: all 0.3s ease; opacity: 0; transform: scale(0.9); pointer-events: none; }
+    .chat-window.open { opacity: 1; transform: scale(1); pointer-events: auto; }
+    .chat-header { padding: 12px 16px; background: var(--accent); color: white; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+    .chat-header button { background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
+    .chat-messages { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+    .message { max-width: 90%; padding: 10px 14px; border-radius: 18px; font-size: 0.85rem; line-height: 1.5; word-wrap: break-word; }
+    .user-message { align-self: flex-end; background: var(--chat-user-bg); color: white; border-bottom-right-radius: 4px; }
+    .bot-message { align-self: flex-start; background: var(--chat-bot-bg); color: var(--text-primary); border-bottom-left-radius: 4px; cursor: pointer; transition: opacity 0.2s; }
+    .bot-message:hover { opacity: 0.85; }
+    .suggestions { padding: 8px; display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid var(--border-light); background: var(--bg-card); }
+    .suggestion-chip { background: var(--accent); color: white; padding: 5px 12px; border-radius: 40px; font-size: 0.7rem; cursor: pointer; transition: background 0.2s, transform 0.1s; white-space: nowrap; }
+    .suggestion-chip:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .chat-input-area { display: flex; border-top: 1px solid var(--border-light); padding: 8px; gap: 8px; }
+    .chat-input-area input { flex: 1; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 40px; padding: 8px 12px; color: var(--text-primary); outline: none; }
+    .chat-input-area button { background: var(--accent); border: none; border-radius: 40px; padding: 0 16px; color: white; font-weight: 500; transition: background 0.2s; }
+    .chat-input-area button:hover { background: var(--accent-hover); }
+    @media (max-width: 480px) { .chat-window { width: 340px; right: 0; bottom: 72px; } .suggestion-chip { font-size: 0.65rem; white-space: normal; } .suggestions { flex-wrap: wrap; } }
+    .copy-toast { position: fixed; bottom: 100px; right: 30px; background: var(--accent); color: white; padding: 6px 12px; border-radius: 40px; font-size: 0.7rem; z-index: 1100; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
+    .hire-me-float { position: fixed; bottom: 30px; left: 30px; z-index: 1001; background: var(--accent); color: white; border: none; border-radius: 40px; padding: 12px 24px; font-weight: 600; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.2s, background 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+    .hire-me-float:hover { transform: scale(1.05); background: var(--accent-hover); color: white; }
+    @media (max-width: 768px) { .hire-me-float { padding: 8px 18px; font-size: 0.8rem; bottom: 20px; left: 20px; } }
+    .visitor-counter { font-size: 0.7rem; opacity: 0.7; margin-top: 8px; }
+    .connection-badge { background: #0a66c2; color: white; }
+    body.light .connection-badge { background: #0a66c2; color: white; }
+  </style>
 </head>
+<body class="dark-mode">
+<div class="floating-bg"></div>
 
-<body>
-
-<div class="wave"></div>
-<div class="wave"></div>
-<div class="wave"></div>
-
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">
-      <p class="display-2 m-2">MY PORTFOLIO</p>
-    </a>
-
-    <button class="navbar-toggler me-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNano">
-      <span class="toggler-icon"></span>
-      <span class="toggler-icon"></span>
-      <span class="toggler-icon"></span>
+    <a class="navbar-brand fw-bold fs-3" href="#" style="color: var(--accent);">Moshek.dev</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNano">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#hh">Home</a></li>
-
-        <li class="nav-item"><a class="nav-link" href="#box1">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#hsc">Education</a></li>
-        <li class="nav-item"><a class="nav-link" href="#prr">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#sss">Social</a></li>
-        <li class="nav-item"><a class="nav-link" href="#sss">Contact</a></li>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center gap-2">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li><button id="darkModeToggle" class="theme-toggle ms-2"><i class="bi bi-sun-fill"></i> <span>Light</span></button></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<br><br><br><br>
-
-<style>
-  @import url('https://fonts.googleapis.com/css?family=Montserrat');
-
-
-h3 {
-	margin: 10px 0;
-}
-
-h6 {
-	margin: 5px 0;
-	text-transform: uppercase;
-}
-
-p {
-	font-size: 14px;
-	line-height: 21px;
-}
-
-.card-container {
-	background-color: #231E39;
-	border-radius: 5px;
-	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
-	color: #B3B8CD;
-	padding-top: 30px;
-	position: relative;
-	width: 350px;
-	max-width: 100%;
-	text-align: center;
-}
-
-.card-container .pro {
-	color: #231E39;
-	background-color: #FEBB0B;
-	border-radius: 3px;
-	font-size: 14px;
-	font-weight: bold;
-	padding: 3px 7px;
-	position: absolute;
-	top: 30px;
-	left: 30px;
-}
-
-.card-container .round {
-	border: 1px solid #03BFCB;
-	border-radius: 50%;
-	padding: 7px;
-}
-
-button.primary {
-	background-color: #03BFCB;
-	border: 1px solid #03BFCB;
-	border-radius: 3px;
-	color: #231E39;
-	font-family: Montserrat, sans-serif;
-	font-weight: 500;
-	padding: 10px 25px;
-}
-
-button.primary.ghost {
-	background-color: transparent;
-	color: #02899C;
-}
-
-.skills {
-	background-color: #1F1A36;
-	text-align: left;
-	padding: 15px;
-	margin-top: 30px;
-  border-radius: 20px;
-}
-
-.skills ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.skills ul li {
-	border: 1px solid #2D2747;
-	border-radius: 2px;
-	display: inline-block;
-	font-size: 12px;
-	margin: 0 7px 7px 0;
-	padding: 7px;
-}
-
-footer {
-    background-color: #22222261;
-    color: #fff;
-    font-size: 14px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 999;
-}
-
-footer p {
-    margin: 10px 0;
-}
-
-footer i {
-    color: red;
-}
-
-footer a {
-    color: #3c97bf;
-    text-decoration: none;
-
-}
-.card-container {
-  max-width: 400px;    /* keeps your card from stretching too wide */
-  margin: 0 auto;      /* centers the container */
-  padding: 1rem;  
-  margin-bottom: 14px; 
-  background-color: transparent; 
-  color: white;   /* gives breathing room */
-}
-
-/* Mobile-first responsive tweak */
-@media (max-width: 576px) {
-  .card-container {
-    max-width: 100%;    /* full width on small screens */
-    padding: 1rem 0.5rem;
-  }
-}
-#skk{
-  border-radius: 5px;
-  color: white;
-}
-#skk:hover{
-  background-color: rgba(198, 200, 205, 0.14);
-  transition: 0.5s;
-  cursor: pointer;
-}
-</style>
-<!-- MAIN CONTENT -->
-<div class="container text-center mt-5 p-5 ">
-
-  <div class="row align-items-center ">
-    <!-- LEFT HERO TEXT -->
-   <div class="col-md-6 " id="box2">
-  <div class="card-container"  id="hh"1>
-	<span class="pro  text-white" style="background-color: transparent;">
-<img src="verified.svg" alt="" style="width: 30px; height: 30px;" >
- 
-</span>
-<img class="round" style="width: 150px; height: 150px;" src="IMG_20231224_070858_772.jpg" alt="user" /> 
-  <div class="h3">Moshek Shaju Jones J</div>
-	<h6>Chennai</h6>
-	<p>Java Developer<br/><br></p>
-	<div class="buttons">
-		<a class="btn btn-primary" href="https://www.linkedin.com/in/moshek-shaju-jones-j-871261247/" >
-			Connect
-    </a>
-<a class="btn btn-outline-success"
-   href="msjones.pdf"
-   download="Moshek_Shaju_Resume.pdf"
-   aria-label="Download resume (PDF)">
-  
-  <!-- Optional SVG icon -->
-  <i class="fa-solid fa-download"></i>
-
-  Resume
-</a>
-
-
-	</div>
-
-  <!-- Adding Skills section -->
-	<div class="skills">
-		<h6>Skills</h6>
-		<ul>
-			<!-- Technical Skills -->
-<li id="skk">Java</li>
-<li id="skk">Spring Boot</li>
-<li id="skk">Spring MVC</li>
-<li id="skk">Hibernate / JPA</li>
-<li id="skk">REST API Development</li>
-
-<li id="skk">MySQL</li>
-<li id="skk">SQL</li>
-
-<li id="skk">HTML</li>
-<li id="skk">CSS</li>
-<li id="skk">JavaScript</li>
-
-<li id="skk">Docker</li>
-<li id="skk">Git</li>
-<li id="skk">GitHub</li>
-<li id="skk">Maven</li>
-<li id="skk">Postman</li>
-
-<li id="skk">OOP</li>
-<li id="skk">AES-256</li>
-<li id="skk">HMAC</li>
-<li id="skk">Layered Architecture</li>
-
-<!-- Soft Skills -->
-<li id="skk">Communication</li>
-<li id="skk">Problem Solving</li>
-<li id="skk">Fast Learner</li>
-
-<!-- Extras -->
-<li id="skk">Piano</li>
-<li id="skk">Content Creation</li>
-<li id="skk">Marketing</li>
-			
-		</ul>
-	</div>
-</div>
-
-
-<!-- Footer for this webpage  -->
-<footer>
-	<p>
-		© 2026 Moshek Shaju Jones J — My Portfolio
-	</p>
-</footer>
-</div>
-<script>
-
-</script>
-
-    <!-- RIGHT SUMMARY BOX -->
-       
-    <div class="col-md-6" id="box1" >
-      <p class="p-5" style="text-align: justify;">
-      
-        <span class="h2 p-1 pp">Profile Summary</span><br><br>
-        Java Full Stack Developer with a strong foundation in building scalable web applications and backend systems. Proficient in Java, Spring Boot, MySQL, HTML, CSS, and JavaScript, with hands-on experience in designing RESTful APIs and implementing efficient data-driven solutions. Demonstrates a solid understanding of software architecture, including layered design and secure coding practices. Focused on developing high-performance applications that improve user experience and operational efficiency while continuously expanding technical expertise.
-      </p>
-    </div>
-    
-  </div>
-
-  <br><br>
-  <div class="row abt rounded-3 p-3">
-    <div class="col m-2 ro2 " style="text-align: justify;border: none;" >
-      <p class="h3 hh" style="text-align: center;">About Me</p> <br>
-   <p class="n" style="border: none;">I am eager to contribute my skills in Java and web development to your organization while continuously improving my technical expertise.
-I focus on building efficient, scalable solutions with clean, maintainable code that delivers real-world value.
-I look forward to growing as a developer while making meaningful contributions to your team.</p> </div>
-   
-  </div>
-
-  </div>
-   
-     <br><br>
-
-
-  <!-- EXPERIENCE SECTION ALTERNATING LEFT-RIGHT -->
-  <div id="box1" class="p-4 text-start" style="max-width: 950px; margin:auto;">
-    <span class="h2 pp p-2" id="hsc">Education</span>
-    <br><br>
-    <div class="timeline">
-      <!-- LEFT -->
-      <div class="timeline-item left " id="experience">
-        <div class="timeline-dot" ></div>
-        <div class="timeline-content" >  <!-- left side experience -->
-          <h4>Java Full stack development course </h4>
-          <span class="exp-date">Jun 2025 - Dec 2025</span>
-          <p>@JClick Solutions, Nagercoil</p>
+<main>
+  <section id="home" class="hero-section">
+    <div class="container py-5">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7" data-aos="fade-up" data-aos-duration="800">
+          <div class="trainee-badge mb-3"><i class="bi bi-stars"></i> Incoming Graduate Trainee @ TCS</div>
+          <h1 class="display-4 fw-bold mb-3">Hi, I'm <span style="color: var(--accent);">Moshek Shaju Jones </span></h1>
+          <div class="rotating-title mb-4"><span class="typewriter-text" id="typewriter"></span></div>
+          <p class="lead text-secondary mb-4">Java Developer • Spring Boot Enthusiast • Building secure, scalable backend systems. Passionate about clean code and solving real-world problems with high-performance applications.</p>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="#contact" class="btn btn-primary-custom"><i class="bi bi-chat-dots"></i> Get in touch</a>
+            <a href="msjones.pdf" download class="btn btn-outline-accent"><i class="bi bi-download"></i> Resume</a>
+          </div>
+          <div class="mt-4 d-flex flex-wrap gap-2 align-items-center">
+            <span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill"><i class="fab fa-java"></i> Java 17+</span>
+            <span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill"><i class="fas fa-leaf"></i> Spring Boot</span>
+            <span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill"><i class="fas fa-database"></i> MySQL</span>
+            <span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill"><i class="fab fa-docker"></i> Docker</span>
+            
+            <!-- GitHub Followers - LIVE -->
+            <a href="https://github.com/MOSHEK077" target="_blank" class="text-decoration-none">
+              <span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill">
+                <span id="githubFollowers">⟳</span> 
+              </span>
+            </a>
+            
+            <!-- LinkedIn Connections - 1000+ Badge -->
+            <a href="https://www.linkedin.com/in/msjones07/" target="_blank" class="text-decoration-none">
+              <span class="badge px-3 py-2 rounded-pill connection-badge" style="background: #0a66c2;">
+                <i class="bi bi-linkedin"></i> <span id="linkedinConnections">1,000+</span> connections
+              </span>
+            </a>
+          </div>
         </div>
-      </div>
-
-      <!-- RIGHT -->
-       
-      <div class="timeline-item right " >
-        <div class="timeline-dot"></div>
-        <div class="timeline-content" >
-          <h4>B.Sc in Physics</h4>
-          <span class="exp-date">June 2022 – May 2025</span>
-          <p>Scott Christian College, Nagercoil Percentage: 68%</p>
-        </div>
-      </div>
-
-      <!-- LEFT -->
-      <div class="timeline-item left " >
-        <div class="timeline-dot"></div>
-        <div class="timeline-content vibrate-2-normal">
-          <h4>H.Sc in Computer Science</h4>
-          <span class="exp-date">June 2019 – March 2022</span>
-          <p>GHSS, Thovalai
-
-Percentage: 65.16%</p>
+        <div class="col-lg-5 text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="profile-wrapper">
+            <img src="IMG_20231224_070858_772.jpg" alt="Moshek Shaju Jones" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?background=3b82f6&color=fff&name=Moshek'">
+            <div class="photo-verified-badge" data-tooltip="Verified Portfolio" aria-label="Verified professional portfolio"><i class="bi bi-patch-check-fill"></i></div>
+          </div>
+          <div class="mt-4"><p class="mb-0"><i class="bi bi-envelope-fill me-2 text-primary"></i> jonesmoshekofficial@gmail.com</p><p><i class="bi bi-geo-alt-fill me-2 text-primary"></i> Chennai, India</p></div>
+          <div class="visitor-counter mt-2">👁️ Portfolio views: <span id="visitorCount">loading...</span></div>
         </div>
       </div>
     </div>
+  </section>
+
+  <section id="about" class="py-5"><div class="container"><div class="row g-5"><div class="col-md-6" data-aos="fade-right"><div class="glass-card p-4 h-100"><h2 class="fw-bold mb-3" style="color: var(--accent);"><i class="bi bi-person-badge me-2"></i>About Me</h2><p class="text-secondary lh-lg">I'm a passionate Java Full Stack Developer with a strong foundation in building scalable web applications and backend systems. Proficient in Java, Spring Boot, MySQL, and modern frontend technologies. As an incoming <strong class="text-primary">Graduate Trainee at TCS</strong>, I bring problem-solving mindset, fast learning ability, and dedication to high-quality code.</p><p class="text-secondary">I focus on secure coding (AES-256, HMAC), layered architecture, and delivering production-ready REST APIs. Outside coding, I enjoy content creation, playing piano, and contributing to developer communities. Verified skills and commitment to excellence.</p></div></div><div class="col-md-6" data-aos="fade-left" id="skills"><div class="glass-card p-4 h-100"><h2 class="fw-bold mb-4" style="color: var(--accent);"><i class="bi bi-code-slash me-2"></i>Technical Expertise</h2><div class="skill-item"><div class="d-flex justify-content-between"><span>Java / Spring Boot</span><span class="skill-percent" data-target="90">0%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div></div><div class="skill-item"><div class="d-flex justify-content-between"><span>REST API / Microservices</span><span class="skill-percent" data-target="85">0%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div></div><div class="skill-item"><div class="d-flex justify-content-between"><span>SQL / JPA / Hibernate</span><span class="skill-percent" data-target="85">0%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div></div><div class="skill-item"><div class="d-flex justify-content-between"><span>HTML5 / CSS3 / Bootstrap</span><span class="skill-percent" data-target="80">0%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div></div><div class="skill-item"><div class="d-flex justify-content-between"><span>Docker / Git / Maven</span><span class="skill-percent" data-target="78">0%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="78"></div></div></div><div class="mt-4 d-flex flex-wrap gap-2"><span class="badge bg-primary bg-opacity-20 p-2">Problem Solving</span><span class="badge bg-primary bg-opacity-20 p-2">Team Collaboration</span><span class="badge bg-primary bg-opacity-20 p-2">Agile Mindset</span><span class="badge bg-primary bg-opacity-20 p-2">Secure Coding</span></div></div></div></div></div></section>
+
+  <section class="py-4"><div class="container"><div class="row text-center g-4" data-aos="zoom-in-up"><div class="col-md-3 col-6"><div class="glass-card p-3"><div class="counter-number" data-count="6">0</div><p class="mb-0 fw-medium">Projects Completed</p></div></div><div class="col-md-3 col-6"><div class="glass-card p-3"><div class="counter-number" data-count="12">0</div><p class="mb-0 fw-medium">Certifications</p></div></div><div class="col-md-3 col-6"><div class="glass-card p-3"><div class="counter-number" data-count="520">0</div><p class="mb-0 fw-medium">GitHub Commits</p></div></div><div class="col-md-3 col-6"><div class="glass-card p-3"><div class="counter-number" data-count="3">0</div><p class="mb-0 fw-medium">Achievements</p></div></div></div></div></section>
+
+  <!-- Testimonials Section -->
+  <section class="py-4">
+    <div class="container">
+      <div class="text-center mb-4" data-aos="fade-up"><h2 class="fw-bold" style="color: var(--accent);"><i class="bi bi-chat-quote-fill me-2"></i>What People Say</h2><p class="text-secondary">Feedback from mentors and peers</p></div>
+      <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-md-6"><div class="glass-card p-4 text-center"><i class="bi bi-chat-quote-fill fs-1 text-primary"></i><p class="mt-3">"Moshek is a dedicated developer with strong problem-solving skills. He delivered the backend for our project on time with clean code."</p><h6 class="mt-2 text-primary">— Project Guide, JClick Solutions</h6></div></div>
+        <div class="col-md-6"><div class="glass-card p-4 text-center"><i class="bi bi-chat-quote-fill fs-1 text-primary"></i><p class="mt-3">"His Spring Boot knowledge and attention to security (AES, HMAC) made a big difference in our medical data transfer project."</p><h6 class="mt-2 text-primary">— Senior Developer, Freelance Collab</h6></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="py-5"><div class="container"><div class="text-center mb-5" data-aos="fade-down"><h2 class="fw-bold" style="color: var(--accent);"><i class="bi bi-folder2-open"></i> Featured Projects</h2><p class="text-secondary">Real-world applications, end-to-end development</p></div><div class="row g-4"><div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100"><div class="project-card"><img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" class="project-img" alt="Food Ordering"><div class="p-3"><h5 class="fw-bold">Food Ordering System</h5><p class="small text-secondary">Java Servlets, MySQL, HTML/CSS</p><p class="small">Real-time menu browsing, order management with secure backend.</p><a href="https://github.com/MOSHEK077/foodordeing" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill mt-2"><i class="bi bi-github"></i> Code</a></div></div></div><div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="200"><div class="project-card"><img src="https://images.pexels.com/photos/5380668/pexels-photo-5380668.jpeg?auto=compress&cs=tinysrgb&w=600" class="project-img" alt="Medical Data"><div class="p-3"><h5 class="fw-bold">Secure Medical Data System</h5><p class="small text-secondary">AES-256, HMAC, JSP, MySQL</p><p class="small">Data integrity, encryption + integrity verification for healthcare.</p><a href="https://github.com/MOSHEK077/MedicalDataTransferUsingCryptography" class="btn btn-sm btn-outline-primary rounded-pill mt-2"><i class="bi bi-github"></i> Code</a></div></div></div><div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="300"><div class="project-card"><img src="https://images.pexels.com/photos/6238048/pexels-photo-6238048.jpeg?auto=compress&cs=tinysrgb&w=600" class="project-img" alt="E-Commerce"><div class="p-3"><h5 class="fw-bold">E-Commerce Backend</h5><p class="small text-secondary">Spring Boot, JPA, Docker, MySQL</p><p class="small">REST APIs, layered architecture, product & order management.</p><a href="https://github.com/MOSHEK077/SpringBootE-Commerce" class="btn btn-sm btn-outline-primary rounded-pill mt-2"><i class="bi bi-github"></i> Code</a></div></div></div></div></div></section>
+
+  <section id="education" class="py-5"><div class="container"><div class="row g-4"><div class="col-lg-6" data-aos="fade-right"><div class="glass-card p-4"><h3 class="fw-bold mb-4"><i class="bi bi-mortarboard-fill me-2" style="color: var(--accent);"></i>Education</h3><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h5>Java Full Stack Development</h5><span class="badge bg-info bg-opacity-25 mb-2">Jun 2025 – Dec 2025</span><p>@JClick Solutions, Nagercoil — Intensive training in Spring Boot, REST APIs, Microservices.</p></div></div><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h5>B.Sc in Physics</h5><span class="badge bg-info bg-opacity-25 mb-2">2022 – 2025</span><p>Scott Christian College, Percentage: 68% — Minors in Computer Applications.</p></div></div><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h5>H.Sc in Computer Science</h5><span class="badge bg-info bg-opacity-25 mb-2">2019 – 2022</span><p>GHSS, Thovalai — Percentage: 65.16%</p></div></div></div></div><div class="col-lg-6" data-aos="fade-left" id="certifications"><div class="glass-card p-4"><h3 class="fw-bold mb-4"><i class="bi bi-patch-check-fill me-2" style="color: var(--accent);"></i>Certifications & Credentials</h3><div style="max-height: 500px; overflow-y: auto; padding-right: 8px;"><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-journal-bookmark-fill text-primary"></i><strong>Java Full Stack</strong></div><span class="cert-badge">JCLICK SOLUTIONS</span> <span class="cert-badge">Issued Jun 2025</span><p class="small mt-1 mb-1">Skills: Java Development, Java Swing, Spring Boot, Hibernate, REST APIs</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-linkedin text-info"></i><strong>Java Object-Oriented Programming</strong></div><span class="cert-badge">LinkedIn</span> <span class="cert-badge">Issued Sep 2025</span><p class="small mt-1 mb-1">Object-Oriented Programming (OOP), Java</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-building text-success"></i><strong>Communication Skill - Advanced</strong></div><span class="cert-badge">NSDC</span> <span class="cert-badge">Issued Jul 2025</span><p class="small mt-1 mb-1">Communication, Professional Skills</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-code-square text-warning"></i><strong>Java (Basic) - HackerRank</strong></div><span class="cert-badge">HackerRank</span> <span class="cert-badge">Issued Jul 2025</span><p class="small mt-1 mb-1">Completed timed assessment for Java basics.</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-cloud-arrow-up text-primary"></i><strong>AWS Developer - Associate (Aurora MySQL)</strong></div><span class="cert-badge">Amazon Web Services</span> <span class="cert-badge">Issued Jul 2025</span><p class="small mt-1 mb-1">Amazon Aurora MySQL, Database Management</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-graph-up text-danger"></i><strong>Python - Kaggle</strong></div><span class="cert-badge">Kaggle</span> <span class="cert-badge">Issued Apr 2025</span><p class="small mt-1 mb-1">Python fundamentals, data handling, scripting for data projects</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-reception-4 text-info"></i><strong>Python Programming (NSDC) - Reliance Foundation</strong></div><span class="cert-badge">Reliance Foundation</span> <span class="cert-badge">Issued Mar 2025</span><p class="small mt-1 mb-1">Python, Debugging, File Handling, Problem Solving</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-rocket-takeoff text-warning"></i><strong>SPACE SCIENCE AND TECHNOLOGY AWARENESS (START)</strong></div><span class="cert-badge">ISRO</span> <span class="cert-badge">Issued Jan 2025</span><p class="small mt-1 mb-1">Space Science, Satellite Technology, Astrophysics, Remote Sensing</p><a href="#" class="credential-link" target="_blank">Credential ID: 461aa81d476d520017a99e3e4b0108ec <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-google text-danger"></i><strong>Crash Course on Python</strong></div><span class="cert-badge">Google</span> <span class="cert-badge">Issued Jan 2025</span><p class="small mt-1 mb-1">Python, Debugging, Automation</p><a href="#" class="credential-link" target="_blank">Credential ID: 5K8P49D9ARGN <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-lightning-charge-fill text-secondary"></i><strong>Electrical Systems: Communications and Data</strong></div><span class="cert-badge">LinkedIn</span> <span class="cert-badge">Issued Oct 2024</span><p class="small mt-1 mb-1">Mechanical, Electrical, and Plumbing (MEP)</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div></div></div></div></div></div></section>
+
+  <section id="contact" class="py-5"><div class="container"><div class="row justify-content-center"><div class="col-lg-8" data-aos="zoom-in"><div class="contact-glass p-4 p-md-5 text-center"><h2 class="fw-bold mb-3" style="color: var(--accent);"><i class="bi bi-chat-dots-fill"></i> Let’s Connect</h2><p class="text-secondary mb-4">I'm open to opportunities, collaborations, or just a tech chat.</p><div class="row justify-content-center gy-4 mb-4"><div class="col-sm-6"><div class="glass-card p-3"><i class="bi bi-envelope fs-2" style="color: var(--accent);"></i><br><a href="mailto:jonesmoshekofficial@gmail.com" class="text-decoration-none text-primary">jonesmoshekofficial@gmail.com</a></div></div><div class="col-sm-6"><div class="glass-card p-3"><i class="bi bi-telephone fs-2" style="color: var(--accent);"></i><br><a href="tel:+919500434636" class="text-decoration-none text-primary">+91 9500434636</a></div></div></div><div class="mt-2"><div class="input-group mb-3 w-75 mx-auto"><input type="text" id="waMessage" class="form-control rounded-pill ps-3 bg-transparent border-secondary" placeholder="Write a quick message..." style="background: var(--bg-card);"><button onclick="sendWhatsApp()" class="btn btn-primary-custom rounded-pill ms-2 px-4">WhatsApp <i class="bi bi-whatsapp"></i></button></div></div><div class="social-links mt-4 d-flex justify-content-center gap-3"><a href="https://github.com/MOSHEK077" target="_blank" class="social-icon-circle"><i class="bi bi-github fs-5"></i></a><a href="https://www.linkedin.com/in/msjones07/" target="_blank" class="social-icon-circle"><i class="bi bi-linkedin fs-5"></i></a><a href="https://x.com/ShajuJones" target="_blank" class="social-icon-circle"><i class="bi bi-twitter-x fs-5"></i></a><a href="https://www.youtube.com/@Jonesmusic07" target="_blank" class="social-icon-circle"><i class="bi bi-youtube fs-5"></i></a><a href="https://discord.com/channels/@me" target="_blank" class="social-icon-circle"><i class="bi bi-discord fs-5"></i></a></div></div></div></div></div></section>
+</main>
+
+<footer class="py-4 mt-5"><div class="container text-center"><p class="text-secondary small mb-0">© 2026 Moshek Shaju Jones J — Crafted with <i class="bi bi-heart-fill text-danger"></i> for Java & Innovation | <i class="bi bi-patch-check-fill text-primary"></i> Verified Portfolio | <i class="bi bi-linkedin"></i> 1,000+ connections</p></div></footer>
+
+<!-- Floating Hire Me Button -->
+<a href="#contact" class="hire-me-float"><i class="bi bi-briefcase-fill"></i> Hire Me</a>
+
+<!-- Chatbot Widget -->
+<div class="chatbot-widget">
+  <div class="chat-toggle" id="chatToggle"><i class="bi bi-chat-dots-fill"></i></div>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header"><span><i class="bi bi-robot"></i> JX Assistant</span><button id="chatClose"><i class="bi bi-x-lg"></i></button></div>
+    <div class="chat-messages" id="chatMessages"><div class="message bot-message">🤖 Hi! I'm JX Assistant, your guide to Moshek's portfolio. Click any of my answers to copy them. Try asking:</div></div>
+    <div class="suggestions" id="suggestions"></div>
+    <div class="chat-input-area"><input type="text" id="chatInput" placeholder="Ask me anything..."><button id="chatSend">Send</button></div>
   </div>
-<section class="transparent-bg">
-	<div class="container py-2">
-		<div class="h1 text-center text-dark" id="pageHeaderTitle" >My Projects</div>
-
-		<article class="postcard light blue" id="prr">
-			<a class="postcard__img_link" href="#" >
-				<img class="postcard__img" src="wp3108378.jpg" alt="Image Title" />
-			</a>
-			<div class="postcard__text t-dark">
-				<h1 class="postcard__title blue"><a href="#" style="text-decoration: none;" >Food Ordering System</a></h1>
-				<div class="postcard__subtitle small">
-					<time datetime="2020-05-25 12:00:00">
-						<i class="fas fa-calendar-alt mr-2"></i> Fri, Oct 10 2025
-					</time>
-				</div>
-				<div class="postcard__bar"></div>
-				<div class="postcard__preview-txt"><span class="h6">Tech Used: HTML, CSS, Java Servlets, MySQL</span>
-
-Built a dedicated web application where users can browse menus, place orders, and manage their transactions. The frontend was crafted with clean HTML & CSS, while the backend ran on Java Servlets connected to a MySQL database.
-Designed and implemented real-time order handling, ensuring smooth communication between the interface and the server. Everything was built from scratch with full dedication—no shortcuts, just straight-up development.</div>
-				<ul class="postcard__tagbox">
-					
-					
-					<li class="tag__item play blue">
-						<a href="https://github.com/MOSHEK077/foodordeing" style="text-decoration: none; font-weight: bold;"><i class="bi bi-github" ></i> <br>Code</a>
-					</li>
-				</ul>
-			</div>
-		</article>
-		<article class="postcard light red">
-			<a class="postcard__img_link" href="#">
-				<img class="postcard__img" src="Screenshot 2026-03-23 122419.png" alt="Image Title" />	
-			</a>
-			<div class="postcard__text t-dark">
-				<h1 class="postcard__title red"><a href="#" class="p-2" style="text-decoration: none;">Secure Medical Data  System</a></h1>
-				<div class="postcard__subtitle small p-2">
-					<time datetime="2025-09-01">
-						<i class="fas fa-calendar-alt mr-2 "></i> September 2025
-					</time>
-				</div>
-				<div class="postcard__bar m-2"></div>
-				<div class="postcard__preview-txt p-2"><span class="h6">Tech Used: Java, JSP, AES-256, HMAC, MySQL</span>
-
-Built a secure system to transfer medical records using Java, JSP, and MySQL.  
-Implemented AES-256 encryption and HMAC verification to ensure data confidentiality and integrity.  
-Applied input validation and backend security logic, improving system security by 40%.</div>
-				<ul class="postcard__tagbox">
-					
-					<li class="tag__item play red">
-								<a href="https://github.com/MOSHEK077/MedicalDataTransferUsingCryptography" style="text-decoration: none; font-weight: bold;"><i class="bi bi-github" ></i> <br>Code</a>
-					</li>
-					</li>
-				</ul>
-			</div>
-		</article>
-		<article class="postcard light green">
-			<a class="postcard__img_link" href="#">
-				<img class="postcard__img" src="ecomerce.webp" alt="Image Title" />
-			</a>
-			<div class="postcard__text t-dark">
-				<h1 class="postcard__title green"><a href="#" style="text-decoration: none;">Spring Boot E-Commerce System (Java, Spring Boot, JPA, MySQL, Docker)
-</a></h1>
-				<div class="postcard__subtitle small">
-					<time datetime="2026-02-01">
-						<i class="fas fa-calendar-alt mr-2"></i> February 2026
-					</time>
-				</div>
-				<div class="postcard__bar"></div>
-				<div class="postcard__preview-txt">Developed a scalable backend e-commerce system using Spring Boot with layered architecture (Controller, Service, Repository).  
-
-Designed RESTful APIs for managing users, products, orders, and carts with efficient request handling.  
-
-Integrated JPA/Hibernate with MySQL for optimized data persistence and CRUD operations.  
-
-Containerized the application using Docker, improving deployment consistency and development speed.</div>
-				<ul class="postcard__tagbox">
-					
-					<li class="tag__item play green">
-		<a href="https://github.com/MOSHEK077/SpringBootE-Commerce" style="text-decoration: none; font-weight: bold;"><i class="bi bi-github" ></i> <br>Code</a>
-					</li></li>
-				</ul>
-			</div>
-      </article>
-		<!-- 
-		<article class="postcard light yellow">
-			<a class="postcard__img_link" href="#">
-				<img class="postcard__img" src="https://picsum.photos/501/501" alt="Image Title" />
-			</a>
-			<div class="postcard__text t-dark">
-				<h1 class="postcard__title yellow"><a href="#">Podcast Title</a></h1>
-				<div class="postcard__subtitle small">
-					<time datetime="2020-05-25 12:00:00">
-						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-					</time>
-				</div>
-				<div class="postcard__bar"></div>
-				<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-				<ul class="postcard__tagbox">
-					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
-					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
-					<li class="tag__item play yellow">
-						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
-					</li>
-				</ul>
-			</div>
-		</article> -->
-	</div>
-</section>
-
-
-<!-- Add Contact -->
-
-
- <style>
-        :root {
-            --accent: #4fb7ff;
-            --dark-bg: #121212;
-        }
-        
-      
-        .contact-card {
-            backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 10px 30px rgba(79, 183, 255, 0.18);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(79, 183, 255, 0.25);
-        }
-        
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(79, 183, 255, 0.05), transparent);
-            z-index: -1;
-        }
-        
-        .contact-title {
-            color: var(--accent);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .contact-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 2px;
-            background: var(--accent);
-        }
-        
-        .contact-row {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 12px 15px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            margin-bottom: 10px;
-        }
-        
-        
-        .contact-row:hover {
-            background: rgba(93, 80, 135, 0.21);
-        }
-        
-        .contact-icon {
-            font-size: 1.3rem;
-            color: var(--accent);
-            flex-shrink: 0;
-            width: 30px;
-            text-align: center;
-        }
-        
-        .contact-text {
-            font-size: 0.95rem;
-            color: #e8f5ff;
-            font-weight: 500;
-            flex: 1;
-        }
-        
-        .contact-link {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-link:hover {
-            color: var(--accent);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
-            color: #e8f5ff;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            background-color:rgba(255, 255, 255, 0.481);
-           
-            transform: translateY(-3px);
-        }
-        
-        @media (max-width: 450px) {
-            .contact-row {
-                flex-direction: row;
-                gap: 15px;
-                justify-content: flex-start;
-            }
-            
-            .contact-icon {
-                width: 25px;
-            }
-            
-        }
-
-        .whatsapp-box input {
-    border-radius: 8px;
-
-}
-
-.whatsapp-box button {
-    border-radius: 8px;
-    font-weight: 500;
-}
-    </style>
-
-
-    <section class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-11 col-sm-8 col-md-6 col-lg-4">
-                <div class="contact-card p-4 rounded-4">
-                    <h5 class="mb-4 fw-bold contact-title">Get In Touch</h5>
-                    <ul class="list-unstyled mb-0">
-                        <!-- PHONE -->
-                        <li class="contact-row">
-                            <i class="bi bi-telephone-fill contact-icon"></i>
-                            <a href="tel:+919500434636" class="contact-text contact-link text-white">+91 9500434636</a>
-                        </li>
-                        <!-- EMAIL -->
-                        <li class="contact-row">
-                            <i class="bi bi-envelope-fill contact-icon"></i>
-                            <a href="mailto:jonesmoshekofficial@gmail.com" class="contact-text contact-link text-white">jonesmoshekofficial@gmail.com</a>
-                        </li>
-                        <!-- LOCATION -->
-                        <li class="contact-row">
-                            <i class="bi bi-geo-alt-fill contact-icon"></i>
-                            <span class="contact-text">Chennai, Tamil Nadu</span>
-                        </li>
-                    </ul>
-                    <!-- WHATSAPP MESSAGE SECTION -->
-<div class="whatsapp-box mt-3">
-    <input type="text" id="waMessage" class="form-control mb-2" placeholder="Type your message...">
-    
-    <button onclick="sendWhatsApp()" class="btn btn-success w-100">
-        Contact via WhatsApp
-    </button>
 </div>
-                    
-                    <!-- Social Links -->
-                    <div class="social-links" id="sss">
-                        <a href="https://www.youtube.com/@Jonesmusic07" class="social-icon">
-                            <i class="bi bi-youtube text-danger"></i>
-                        </a>
-                        <a href="https://github.com/MOSHEK077" class="social-icon text-primary-emphasis">
-                          <i class="bi bi-github"></i>
-                        </a>
-                        <a href="https://x.com/ShajuJones" class="social-icon text-black" style="text-decoration: none;">
-                            <!-- <svg viewBox="0 0 24 24" width="24" height="24">
-  <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-</svg> --><i class="fab fa-x-twitter icon" ></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/msjones07/" class="social-icon">
-                            <i class="bi bi-linkedin text-primary"></i>
-                        </a>
-                        <a href="https://discord.com/channels/@me" class="social-icon">
-                            <i class="bi bi-discord text-primary"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div id="copyToast" class="copy-toast">📋 Copied to clipboard</div>
 
-    <script>
-        // Add some subtle animation on load
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactCard = document.querySelector('.contact-card');
-            contactCard.style.opacity = '0';
-            contactCard.style.transform = 'translateY(20px)';
-            
-            setTimeout(() => {
-                contactCard.style.transition = 'all 0.5s ease';
-                contactCard.style.opacity = '1';
-                contactCard.style.transform = 'translateY(0)';
-            }, 100);
-        });
-    </script>
-
-<script>
-function sendWhatsApp() {
-    let message = document.getElementById("waMessage").value;
-    let phoneNumber = "919500434636";
-
-    if(message.trim() === ""){
-        alert("Please enter a message");
-        return;
-    }
-
-    let url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
-    window.open(url, "_blank");
-}
-</script>
-
-   
-
-<!-- Optionally add Bootstrap JS if using features like collapse/toggler -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  // Select all timeline content elements that need to vibrate
-  const vibrateItems = document.querySelectorAll('.timeline-content.vibrate-2-normal');
-
-  // Create the Intersection Observer
-  const observer = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('vibrate-2-normal');
-          // Do not unobserve if you want the vibration to restart if the user scrolls away/back
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  vibrateItems.forEach(item => {
-    observer.observe(item);
+  AOS.init({ duration: 800, once: true, offset: 60 });
+  
+  // Typewriter effect
+  const titles = ["Java Developer", "Spring Boot Enthusiast", "Incoming Graduate Trainee @ TCS", "Problem Solver", "Secure Code Expert"];
+  let idx = 0, charIdx = 0, isDeleting = false;
+  const typewriterSpan = document.getElementById("typewriter");
+  function typeEffect() {
+    const current = titles[idx];
+    if (isDeleting) { typewriterSpan.innerText = current.substring(0, charIdx-1); charIdx--; if (charIdx === 0) { isDeleting = false; idx = (idx+1)%titles.length; setTimeout(typeEffect, 300); return; } }
+    else { typewriterSpan.innerText = current.substring(0, charIdx+1); charIdx++; if (charIdx === current.length) { isDeleting = true; setTimeout(typeEffect, 1500); return; } }
+    setTimeout(typeEffect, isDeleting ? 70 : 120);
+  }
+  typeEffect();
+  
+  // Dark mode persistence
+  const toggleBtn = document.getElementById("darkModeToggle");
+  const body = document.body;
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') body.classList.add('light');
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("light");
+    localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark');
+    const icon = toggleBtn.querySelector("i");
+    const span = toggleBtn.querySelector("span");
+    if (body.classList.contains("light")) { icon.className = "bi bi-moon-fill"; span.innerText = " Dark"; }
+    else { icon.className = "bi bi-sun-fill"; span.innerText = " Light"; }
   });
+  
+  // Live GitHub followers
+  fetch('https://api.github.com/users/MOSHEK077')
+    .then(res => res.json())
+    .then(data => {
+      if (data.followers) document.getElementById('githubFollowers').innerText = data.followers;
+      else document.getElementById('githubFollowers').innerHTML = '<i class="bi bi-github"></i> Follow';
+    })
+    .catch(() => document.getElementById('githubFollowers').innerHTML = '<i class="bi bi-github"></i> Connect');
+  
+  // Visitor counter
+  fetch('https://api.countapi.xyz/hit/moshek-portfolio/visits')
+    .then(res => res.json())
+    .then(data => { document.getElementById('visitorCount').innerText = data.value; })
+    .catch(() => { document.getElementById('visitorCount').innerText = '★'; });
+  
+  // LinkedIn connections - set to 1000+ (genuine)
+  document.getElementById('linkedinConnections').innerText = '1,000+';
+  
+  // Skill animations
+  const skillBars = document.querySelectorAll(".skill-bar-fill");
+  const skillPercentSpans = document.querySelectorAll(".skill-percent");
+  const counterElements = document.querySelectorAll(".counter-number");
+  let animated = false;
+  function animateSkills() {
+    if (animated) return;
+    const trigger = window.innerHeight * 0.8;
+    const skillsSection = document.querySelector("#skills");
+    if (skillsSection && skillsSection.getBoundingClientRect().top < trigger) {
+      skillBars.forEach(bar => { const width = bar.getAttribute("data-width"); if(width) bar.style.width = width + "%"; });
+      skillPercentSpans.forEach(span => {
+        const target = parseInt(span.getAttribute("data-target"));
+        let current = 0;
+        const step = target / 45;
+        const interval = setInterval(() => {
+          current += step;
+          if (current >= target) { span.innerText = target + "%"; clearInterval(interval); }
+          else { span.innerText = Math.floor(current) + "%"; }
+        }, 20);
+      });
+      counterElements.forEach(counter => {
+        const target = parseInt(counter.getAttribute("data-count"));
+        let count = 0;
+        const step = target / 55;
+        const interval = setInterval(() => {
+          count += step;
+          if (count >= target) { counter.innerText = target; clearInterval(interval); }
+          else { counter.innerText = Math.floor(count); }
+        }, 25);
+      });
+      animated = true;
+    }
+  }
+  window.addEventListener("scroll", animateSkills);
+  window.addEventListener("load", animateSkills);
+  
+  function sendWhatsApp() { let msg = document.getElementById("waMessage").value.trim(); if(msg === "") { alert("Please enter a message"); return; } window.open(`https://wa.me/919500434636?text=${encodeURIComponent(msg)}`, "_blank"); }
+  window.sendWhatsApp = sendWhatsApp;
+  window.addEventListener("scroll", () => { if(window.scrollY > 20) document.querySelector(".navbar")?.classList.add("scrolled"); else document.querySelector(".navbar")?.classList.remove("scrolled"); });
+  
+  // Chatbot
+  const chatToggleBtn = document.getElementById('chatToggle');
+  const chatWindowDiv = document.getElementById('chatWindow');
+  const chatCloseBtn = document.getElementById('chatClose');
+  const chatMessagesDiv = document.getElementById('chatMessages');
+  const chatInputField = document.getElementById('chatInput');
+  const chatSendBtn = document.getElementById('chatSend');
+  const suggestionsContainer = document.getElementById('suggestions');
+  const copyToastDiv = document.getElementById('copyToast');
 
-  window.addEventListener('scroll', () => {
-  document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 0);
-});
+  function showToastMsg(message) { copyToastDiv.textContent = message; copyToastDiv.style.opacity = '1'; setTimeout(() => { copyToastDiv.style.opacity = '0'; }, 2000); }
+  function copyToClipboardText(text) { navigator.clipboard.writeText(text).then(() => showToastMsg("📋 Copied to clipboard!")).catch(() => showToastMsg("⚠️ Could not copy")); }
+  function toggleChatWindow() { chatWindowDiv.classList.toggle('open'); }
+  chatToggleBtn.addEventListener('click', toggleChatWindow);
+  chatCloseBtn.addEventListener('click', () => chatWindowDiv.classList.remove('open'));
 
+  function addMessageToChat(text, isUser, isHtml = false) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+    if (isHtml && !isUser) { msgDiv.innerHTML = text; } else { msgDiv.innerText = text; }
+    if (!isUser) { msgDiv.style.cursor = 'pointer'; msgDiv.title = 'Click to copy'; msgDiv.addEventListener('click', (e) => { e.stopPropagation(); copyToClipboardText(msgDiv.innerText); }); }
+    chatMessagesDiv.appendChild(msgDiv);
+    chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+  }
 
+  const portfolio = {
+    name: "Moshek Shaju Jones J",
+    role: "Java Developer and incoming Graduate Trainee at TCS",
+    location: "Chennai, India",
+    email: "jonesmoshekofficial@gmail.com",
+    phone: "+91 9500434636",
+    skills: ["Java", "Spring Boot", "REST APIs", "SQL/JPA/Hibernate", "HTML5/CSS3/Bootstrap", "Docker", "Git", "Maven", "Problem Solving", "Team Collaboration", "Agile Mindset", "Secure Coding"],
+    projects: [
+      { name: "Food Ordering System", tech: "Java Servlets, MySQL, HTML/CSS", desc: "Real-time menu browsing, order management with secure backend." },
+      { name: "Secure Medical Data System", tech: "AES-256, HMAC, JSP, MySQL", desc: "Data integrity, encryption + integrity verification for healthcare." },
+      { name: "E-Commerce Backend", tech: "Spring Boot, JPA, Docker, MySQL", desc: "REST APIs, layered architecture, product & order management." }
+    ],
+    education: [
+      { degree: "Java Full Stack Development", institution: "JClick Solutions, Nagercoil", period: "Jun 2025 – Dec 2025", details: "Intensive training in Spring Boot, REST APIs, Microservices." },
+      { degree: "B.Sc in Physics", institution: "Scott Christian College", period: "2022 – 2025", details: "Percentage: 68% — Minors in Computer Applications." },
+      { degree: "H.Sc in Computer Science", institution: "GHSS, Thovalai", period: "2019 – 2022", details: "Percentage: 65.16%" }
+    ],
+    certifications: [
+      "Java Full Stack (JCLICK SOLUTIONS, Jun 2025)",
+      "Java Object-Oriented Programming (LinkedIn, Sep 2025)",
+      "Communication Skill - Advanced (NSDC, Jul 2025)",
+      "Java (Basic) - HackerRank (Jul 2025)",
+      "AWS Developer - Associate (Aurora MySQL) (Jul 2025)",
+      "Python - Kaggle (Apr 2025)",
+      "Python Programming (NSDC) - Reliance Foundation (Mar 2025)",
+      "ISRO START Program (Space Science, Jan 2025)",
+      "Google Crash Course on Python (Jan 2025)",
+      "Electrical Systems: Communications and Data (LinkedIn, Oct 2024)"
+    ],
+    achievements: "Completed 6+ projects, earned 12+ certifications, made over 520 GitHub commits, won 3 coding contest achievements.",
+    about: "I'm a passionate Java Full Stack Developer with a strong foundation in building scalable web applications and backend systems."
+  };
+
+  function getFormattedAnswer(question) {
+    const q = question.toLowerCase();
+    if (q.match(/^(hi|hello|hey|greetings|sup|howdy)/i)) return "👋 Hello! I'm JX Assistant. Ask me about Moshek's portfolio!";
+    if (q.match(/who is moshek|tell me about moshek/i)) return `🧑‍💻 <strong>Moshek Shaju Jones J</strong><br>${portfolio.role} from ${portfolio.location}.<br><br>📌 ${portfolio.about}`;
+    if (q.match(/skills|technologies|tech stack|expertise/i)) return `🛠️ <strong>Core Skills</strong><br>${portfolio.skills.join(" • ")}`;
+    if (q.match(/projects|portfolio|what (has|did) (he|moshek) built/i)) {
+      let reply = `<strong>📁 Featured Projects</strong><br><ul>`;
+      portfolio.projects.forEach(p => { reply += `<li><strong>${p.name}</strong> — ${p.tech}<br>${p.desc}</li>`; });
+      reply += `</ul>🔗 Check the Projects section for GitHub links.`;
+      return reply;
+    }
+    if (q.match(/education|study|college|degree|qualification/i)) {
+      let reply = `<strong>🎓 Educational Background</strong><br><ul>`;
+      portfolio.education.forEach(e => { reply += `<li><strong>${e.degree}</strong> — ${e.institution} (${e.period})<br>${e.details}</li>`; });
+      reply += `</ul>`;
+      return reply;
+    }
+    if (q.match(/certifications|certificate|credentials|isro|aws|google/i)) {
+      let reply = `<strong>📜 Certifications (${portfolio.certifications.length})</strong><br><ul>`;
+      portfolio.certifications.slice(0, 6).forEach(c => { reply += `<li>${c}</li>`; });
+      reply += `<li>+ ${portfolio.certifications.length - 6} more...</li></ul>`;
+      return reply;
+    }
+    if (q.match(/contact|email|phone|reach|get in touch/i)) return `📧 <strong>Contact</strong><br>Email: ${portfolio.email}<br>📞 Phone: ${portfolio.phone}<br>🌐 LinkedIn: 1,000+ connections`;
+    if (q.match(/tcs|graduate trainee|incoming|job|role/i)) return `💼 Moshek is an <strong>incoming Graduate Trainee at TCS</strong> with 1,000+ LinkedIn connections.`;
+    if (q.match(/achievements|awards|github commits|wins/i)) return `🏆 <strong>Achievements</strong><br>${portfolio.achievements}`;
+    if (q.match(/where (is|does) (he|moshek) (live|from|based)/i)) return `📍 Moshek is based in ${portfolio.location}.`;
+    return `❓ I can only answer questions about Moshek's portfolio. Try asking about his skills, projects, education, certifications, or contact info.`;
+  }
+
+  function handleSendMessage(question = null) {
+    const msg = question || chatInputField.value.trim();
+    if (!msg) return;
+    if (!question) { addMessageToChat(msg, true, false); chatInputField.value = ''; }
+    else { addMessageToChat(msg, true, false); }
+    setTimeout(() => { const replyHtml = getFormattedAnswer(msg); addMessageToChat(replyHtml, false, true); }, 300);
+  }
+
+  const suggestedQuestionsList = ["Who is Moshek?", "What are his skills?", "Show me his projects", "Tell me about his education", "List his certifications", "How to contact him?"];
+  function renderSuggestionChips() {
+    suggestionsContainer.innerHTML = '';
+    suggestedQuestionsList.forEach(q => {
+      const chip = document.createElement('div');
+      chip.className = 'suggestion-chip';
+      chip.innerText = q;
+      chip.addEventListener('click', () => handleSendMessage(q));
+      suggestionsContainer.appendChild(chip);
+    });
+  }
+  renderSuggestionChips();
+  chatSendBtn.addEventListener('click', () => handleSendMessage());
+  chatInputField.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSendMessage(); });
 </script>
-
-
 </body>
 </html>
