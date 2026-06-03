@@ -15,6 +15,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   
   <style>
+    /* ========== 1. EXISTING PORTFOLIO STYLES (unchanged) ========== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
@@ -71,17 +72,6 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .glass-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-    .navbar {
-      background: rgba(10, 12, 16, 0.85);
-      backdrop-filter: blur(12px);
-      transition: all 0.3s ease;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid var(--border-light);
-    }
-    body.light .navbar { background: rgba(255, 255, 255, 0.85); }
-    .navbar.scrolled { padding: 0.5rem 0; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
-    .nav-link { font-weight: 500; color: var(--text-primary) !important; margin: 0 0.5rem; transition: color 0.2s; }
-    .nav-link:hover { color: var(--accent) !important; }
     .hero-section { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
     .floating-bg { position: absolute; width: 100%; height: 100%; z-index: -1; background: var(--gradient-bg); }
     
@@ -116,7 +106,6 @@
     .timeline-item { position: relative; padding-left: 2rem; margin-bottom: 2rem; }
     .timeline-dot { position: absolute; left: 0; top: 0.3rem; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 4px var(--accent-glow); }
     .timeline-content { background: var(--bg-card); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light); }
-    .theme-toggle { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 2rem; padding: 0.5rem 1.2rem; cursor: pointer; transition: all 0.2s; color: var(--text-primary); }
     .counter-number { font-size: 2.2rem; font-weight: 800; color: var(--accent); }
     .btn-primary-custom { background: var(--accent); border: none; padding: 0.7rem 1.8rem; border-radius: 2rem; font-weight: 500; transition: all 0.25s; color: white; display: inline-flex; align-items: center; gap: 8px; }
     .btn-primary-custom:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5); }
@@ -140,9 +129,8 @@
     body.light .social-icon-circle:hover { background: var(--accent) !important; color: white !important; }
     body.light input, body.light textarea { color: #0f172a !important; background: #f1f5f9 !important; }
     body.light input::placeholder, body.light textarea::placeholder { color: #64748b !important; }
-    body.light .navbar-toggler-icon { filter: invert(1); }
-
-    /* Chatbot Styles */
+    
+    /* Chatbot Styles (unchanged) */
     .chatbot-widget { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
     .chat-toggle { width: 56px; height: 56px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.2s, background 0.2s; color: white; font-size: 28px; animation: glowPulse 2s infinite; }
     @keyframes glowPulse { 0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); } 70% { box-shadow: 0 0 0 12px rgba(59, 130, 246, 0); } 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); } }
@@ -173,7 +161,7 @@
     .connection-badge { background: #0a66c2; color: white; }
     body.light .connection-badge { background: #0a66c2; color: white; }
     
-    /* Simple rectangular WhatsApp input - no auto resize */
+    /* WhatsApp input group */
     .whatsapp-input-group {
       display: flex;
       flex-direction: column;
@@ -224,41 +212,194 @@
       .whatsapp-input-group {
         flex-direction: row;
       }
-      .whatsapp-input {
-        flex: 1;
-      }
-      .send-btn-wa {
-        width: auto;
-        padding: 0 24px;
-      }
+      .whatsapp-input { flex: 1; }
+      .send-btn-wa { width: auto; padding: 0 24px; }
     }
+
+    /* ========== 2. NEW APPLE LIQUID GLASS NAVBAR STYLES ========== */
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.4);
+      --glass-shadow: rgba(0, 0, 0, 0.1);
+      --glass-highlight: rgba(255, 255, 255, 0.8);
+      --glass-caustic: rgba(255, 255, 255, 0.4);
+      --reflection-start: rgba(255, 255, 255, 0.6);
+      --reflection-end: rgba(255, 255, 255, 0.0);
+      --glare-color: rgba(255, 255, 255, 0.5);
+      --pill-bg: rgba(255, 255, 255, 0.7);
+      --pill-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.8);
+      --icon-color: rgba(0, 0, 0, 0.5);
+      --icon-active: rgba(0, 0, 0, 0.95);
+      --divider: rgba(0, 0, 0, 0.15);
+    }
+    body.light {
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.4);
+      --glass-shadow: rgba(0, 0, 0, 0.1);
+      --glass-highlight: rgba(255, 255, 255, 0.8);
+      --glass-caustic: rgba(255, 255, 255, 0.4);
+      --reflection-start: rgba(255, 255, 255, 0.6);
+      --reflection-end: rgba(255, 255, 255, 0.0);
+      --glare-color: rgba(255, 255, 255, 0.5);
+      --pill-bg: rgba(255, 255, 255, 0.7);
+      --pill-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.8);
+      --icon-color: rgba(0, 0, 0, 0.5);
+      --icon-active: rgba(0, 0, 0, 0.95);
+      --divider: rgba(0, 0, 0, 0.15);
+    }
+    body.dark-mode, body:not(.light) {
+      --glass-bg: rgba(30, 30, 35, 0.45);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --glass-shadow: rgba(0, 0, 0, 0.8);
+      --glass-highlight: rgba(255, 255, 255, 0.25);
+      --glass-caustic: rgba(255, 255, 255, 0.05);
+      --reflection-start: rgba(255, 255, 255, 0.15);
+      --reflection-end: rgba(255, 255, 255, 0.0);
+      --glare-color: rgba(255, 255, 255, 0.15);
+      --pill-bg: rgba(60, 60, 65, 0.8);
+      --pill-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.2);
+      --icon-color: rgba(255, 255, 255, 0.5);
+      --icon-active: #ffffff;
+      --divider: rgba(255, 255, 255, 0.15);
+    }
+    .liquid-nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      border-radius: 99px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(50px) saturate(200%);
+      -webkit-backdrop-filter: blur(50px) saturate(200%);
+      box-shadow: 0 40px 80px -20px var(--glass-shadow), 0 10px 30px -10px var(--glass-shadow), inset 0 2px 3px -1px var(--glass-highlight), inset 0 -2px 4px -1px var(--glass-caustic), inset 0 0 0 1px var(--glass-border);
+      transition: all 0.5s ease;
+      z-index: 1000;
+    }
+    .liquid-nav::before {
+      content: '';
+      position: absolute;
+      top: 1px; left: 1px; right: 1px; height: 46%;
+      border-radius: 99px 99px 24px 24px / 99px 99px 12px 12px;
+      background: linear-gradient(180deg, var(--reflection-start) 0%, var(--reflection-end) 100%);
+      pointer-events: none;
+      z-index: 6;
+    }
+    .liquid-glare-container {
+      position: absolute;
+      inset: 0;
+      border-radius: 99px;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .liquid-glare {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      background: radial-gradient(circle 90px at var(--x, 50%) var(--y, 50%), var(--glare-color) 0%, transparent 100%);
+      mix-blend-mode: overlay;
+    }
+    .liquid-nav:hover .liquid-glare { opacity: 1; }
+    .nav-items { position: relative; display: flex; gap: 4px; z-index: 3; }
+    .active-pill {
+      position: absolute;
+      top: 0; left: 0;
+      height: 44px;
+      background: var(--pill-bg);
+      border-radius: 99px;
+      box-shadow: var(--pill-shadow);
+      transition: transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1), width 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
+      z-index: 1;
+    }
+    .nav-btn {
+      position: relative;
+      background: transparent;
+      border: none;
+      padding: 0 20px;
+      height: 44px;
+      border-radius: 99px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--icon-color);
+      cursor: pointer;
+      transition: color 0.3s ease;
+      outline: none;
+      z-index: 2;
+    }
+    .btn-content { display: flex; align-items: center; gap: 8px; pointer-events: none; transition: transform 0.2s cubic-bezier(0.32, 0.72, 0, 1); }
+    .nav-btn:active .btn-content { transform: scale(0.92); }
+    .nav-btn.active { color: var(--icon-active); }
+    .divider { width: 1px; height: 24px; background: var(--divider); margin: 0 4px; z-index: 3; transition: background 0.5s ease; }
+    .theme-nav-btn {
+      background: transparent;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: var(--icon-color);
+      cursor: pointer;
+      z-index: 3;
+      outline: none;
+      margin-left: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.3s ease;
+    }
+    .theme-nav-btn:hover, .theme-nav-btn:active { color: var(--icon-active); }
+    .theme-icon-wrapper { position: relative; width: 20px; height: 20px; pointer-events: none; transition: transform 0.2s cubic-bezier(0.32, 0.72, 0, 1); }
+    .theme-nav-btn:active .theme-icon-wrapper { transform: scale(0.8); }
+    .theme-icon-wrapper svg { position: absolute; top: 0; left: 0; transition: transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.4s ease; stroke-width: 2.2; }
+    .sun-icon { opacity: 1; transform: rotate(0deg) scale(1); }
+    .moon-icon { opacity: 0; transform: rotate(-90deg) scale(0); }
+    body.light .sun-icon { opacity: 0; transform: rotate(90deg) scale(0); }
+    body.light .moon-icon { opacity: 1; transform: rotate(0deg) scale(1); }
+    @media (max-width: 700px) {
+      .liquid-nav { top: 10px; padding: 6px; }
+      .nav-btn { padding: 0 12px; }
+      .btn-content span { display: none; }
+      .btn-content svg { margin: 0; }
+      .divider { margin: 0 2px; }
+    }
+    @media (max-width: 480px) {
+      .liquid-nav { transform: translateX(-50%) scale(0.9); transform-origin: top center; }
+    }
+    main { padding-top: 90px; }
+    @media (max-width: 700px) { main { padding-top: 80px; } }
   </style>
 </head>
 <body class="dark-mode">
 <div class="floating-bg"></div>
 
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold fs-3" href="#" style="color: var(--accent);">Moshek.dev</a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav align-items-center gap-2">
-        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        <li><button id="darkModeToggle" class="theme-toggle ms-2"><i class="bi bi-sun-fill"></i> <span>Light</span></button></li>
-      </ul>
-    </div>
+<!-- ========== NEW APPLE LIQUID GLASS NAVBAR ========== -->
+<nav class="liquid-nav" id="liquidNav">
+  <div class="liquid-glare-container"><div class="liquid-glare" id="glare"></div></div>
+  <div class="nav-items">
+    <div class="active-pill" id="activePill"></div>
+    <button class="nav-btn active" data-section="home"><div class="btn-content"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><span>Home</span></div></button>
+    <button class="nav-btn" data-section="about"><div class="btn-content"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"></circle><path d="M5 20v-2a7 7 0 0 1 14 0v2"></path></svg><span>About</span></div></button>
+    <button class="nav-btn" data-section="skills"><div class="btn-content"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg><span>Skills</span></div></button>
+    <button class="nav-btn" data-section="projects"><div class="btn-content"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg><span>Projects</span></div></button>
+    <button class="nav-btn" data-section="education"><div class="btn-content"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg><span>Education</span></div></button>
+    <button class="nav-btn" data-section="certifications"><div class="btn-content"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 15v2m-6 4h12a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2zm10-10V7a4 4 0 0 0-8 0v4h8z"></path></svg><span>Certificates</span></div></button>
+    <button class="nav-btn" data-section="contact"><div class="btn-content"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>Contact</span></div></button>
   </div>
+  <div class="divider"></div>
+  <button class="theme-nav-btn" id="themeNavBtn" aria-label="Dark Mode Toggle">
+    <div class="theme-icon-wrapper">
+      <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </div>
+  </button>
 </nav>
 
 <main>
+  <!-- ALL EXISTING CONTENT SECTIONS (completely unchanged) -->
   <section id="home" class="hero-section">
     <div class="container py-5">
       <div class="row align-items-center g-5">
@@ -313,7 +454,6 @@
               <div class="col-sm-6"><div class="glass-card p-3"><i class="bi bi-envelope fs-2" style="color: var(--accent);"></i><br><a href="mailto:jonesmoshekofficial@gmail.com" class="text-decoration-none text-primary">jonesmoshekofficial@gmail.com</a></div></div>
               <div class="col-sm-6"><div class="glass-card p-3"><i class="bi bi-telephone fs-2" style="color: var(--accent);"></i><br><a href="tel:+919500434636" class="text-decoration-none text-primary">+91 9500434636</a></div></div>
             </div>
-            <!-- Simple rectangular WhatsApp input - fixed size, no auto-resize -->
             <div class="whatsapp-input-group">
               <input type="text" id="waMessage" class="whatsapp-input" placeholder="Write your message here...">
               <button onclick="sendWhatsApp()" class="send-btn-wa">Send via WhatsApp <i class="bi bi-whatsapp"></i></button>
@@ -336,7 +476,7 @@
 
 <a href="#contact" class="hire-me-float"><i class="bi bi-briefcase-fill"></i> Hire Me</a>
 
-<!-- Chatbot Widget (unchanged) -->
+<!-- Chatbot Widget -->
 <div class="chatbot-widget">
   <div class="chat-toggle" id="chatToggle"><i class="bi bi-chat-dots-fill"></i></div>
   <div class="chat-window" id="chatWindow">
@@ -351,31 +491,90 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+  // Initialize AOS
   AOS.init({ duration: 800, once: true, offset: 60 });
+
+  // Typewriter effect
   const titles = ["Java Developer", "Spring Boot Enthusiast", "Incoming Graduate Trainee @ TCS", "Problem Solver", "Secure Code Expert"];
   let idx = 0, charIdx = 0, isDeleting = false;
   const typewriterSpan = document.getElementById("typewriter");
   function typeEffect() {
     const current = titles[idx];
-    if (isDeleting) { typewriterSpan.innerText = current.substring(0, charIdx-1); charIdx--; if (charIdx === 0) { isDeleting = false; idx = (idx+1)%titles.length; setTimeout(typeEffect, 300); return; } }
-    else { typewriterSpan.innerText = current.substring(0, charIdx+1); charIdx++; if (charIdx === current.length) { isDeleting = true; setTimeout(typeEffect, 1500); return; } }
+    if (isDeleting) {
+      typewriterSpan.innerText = current.substring(0, charIdx-1);
+      charIdx--;
+      if (charIdx === 0) { isDeleting = false; idx = (idx+1)%titles.length; setTimeout(typeEffect, 300); return; }
+    } else {
+      typewriterSpan.innerText = current.substring(0, charIdx+1);
+      charIdx++;
+      if (charIdx === current.length) { isDeleting = true; setTimeout(typeEffect, 1500); return; }
+    }
     setTimeout(typeEffect, isDeleting ? 70 : 120);
   }
   typeEffect();
-  
-  const toggleBtn = document.getElementById("darkModeToggle");
+
+  // Dark mode handling (integrated with new navbar theme button)
   const body = document.body;
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'light') body.classList.add('light');
-  toggleBtn.addEventListener("click", () => {
-    body.classList.toggle("light");
-    localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark');
-    const icon = toggleBtn.querySelector("i");
-    const span = toggleBtn.querySelector("span");
-    if (body.classList.contains("light")) { icon.className = "bi bi-moon-fill"; span.innerText = " Dark"; }
-    else { icon.className = "bi bi-sun-fill"; span.innerText = " Light"; }
+  else body.classList.remove('light'); // default dark
+
+  const themeNavBtn = document.getElementById('themeNavBtn');
+  function updateThemeIcons() {
+    // No extra action needed – CSS handles icon visibility
+  }
+  themeNavBtn.addEventListener('click', () => {
+    body.classList.toggle('light');
+    const isLight = body.classList.contains('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    updateThemeIcons();
+    // Recalculate pill position after theme changes (fonts may shift slightly)
+    setTimeout(() => {
+      const active = document.querySelector('.nav-btn.active');
+      if (active) updatePill(active);
+    }, 50);
   });
-  
+  updateThemeIcons();
+
+  // Navbar sliding pill logic
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const activePill = document.getElementById('activePill');
+  function updatePill(btn, smooth = true) {
+    if (!btn) return;
+    if (!smooth) activePill.style.transition = 'none';
+    else activePill.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1), width 0.5s cubic-bezier(0.34, 1.2, 0.64, 1)';
+    activePill.style.width = `${btn.offsetWidth}px`;
+    activePill.style.transform = `translateX(${btn.offsetLeft}px)`;
+  }
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      navBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updatePill(btn);
+      const sectionId = btn.getAttribute('data-section');
+      if (sectionId) {
+        const target = document.getElementById(sectionId);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+  const initialActive = document.querySelector('.nav-btn.active');
+  if (initialActive) setTimeout(() => updatePill(initialActive, false), 50);
+  window.addEventListener('resize', () => {
+    const active = document.querySelector('.nav-btn.active');
+    if (active) updatePill(active, false);
+  });
+
+  // Mouse glare effect on navbar
+  const liquidNav = document.getElementById('liquidNav');
+  const glare = document.getElementById('glare');
+  liquidNav.addEventListener('mousemove', (e) => {
+    const rect = liquidNav.getBoundingClientRect();
+    glare.style.setProperty('--x', `${e.clientX - rect.left}px`);
+    glare.style.setProperty('--y', `${e.clientY - rect.top}px`);
+  });
+
+  // GitHub followers, visitor counter, skill animations, WhatsApp, chatbot (all identical to previous)
   fetch('https://api.github.com/users/MOSHEK077')
     .then(res => res.json())
     .then(data => { if (data.followers) document.getElementById('githubFollowers').innerText = data.followers; else document.getElementById('githubFollowers').innerHTML = '<i class="bi bi-github"></i> Follow'; })
@@ -430,9 +629,9 @@
     window.open(`https://wa.me/919500434636?text=${encodeURIComponent(msg)}`, "_blank");
   }
   window.sendWhatsApp = sendWhatsApp;
-  window.addEventListener("scroll", () => { if(window.scrollY > 20) document.querySelector(".navbar")?.classList.add("scrolled"); else document.querySelector(".navbar")?.classList.remove("scrolled"); });
+  window.addEventListener("scroll", () => { if(window.scrollY > 20) document.querySelector(".liquid-nav")?.classList.add("scrolled"); else document.querySelector(".liquid-nav")?.classList.remove("scrolled"); });
   
-  // Chatbot (same as previous, fully functional)
+  // Chatbot (same as original – fully functional)
   const chatToggleBtn = document.getElementById('chatToggle');
   const chatWindowDiv = document.getElementById('chatWindow');
   const chatCloseBtn = document.getElementById('chatClose');
