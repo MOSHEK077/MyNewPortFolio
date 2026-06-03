@@ -7,7 +7,6 @@
   <meta name="description" content="Portfolio of Moshek Shaju Jones J — Java Developer, Spring Boot Enthusiast, Incoming Graduate Trainee at TCS. 1000+ LinkedIn connections, verified professional with 12+ certifications.">
   <meta name="theme-color" content="#0a0c10">
   
-  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.css" rel="stylesheet">
@@ -15,7 +14,6 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   
   <style>
-    /* ========== 1. EXISTING PORTFOLIO STYLES (unchanged) ========== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
@@ -75,6 +73,7 @@
     .hero-section { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
     .floating-bg { position: absolute; width: 100%; height: 100%; z-index: -1; background: var(--gradient-bg); }
     
+    /* Profile */
     .profile-wrapper { position: relative; display: inline-block; }
     .profile-img { width: 280px; height: 280px; object-fit: cover; border-radius: 50%; border: 3px solid var(--accent); box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4); transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .profile-img:hover { transform: scale(1.02); box-shadow: 0 25px 40px -12px var(--accent-glow); }
@@ -85,32 +84,38 @@
     .photo-verified-badge[data-tooltip]:hover:before { opacity: 1; }
     .trainee-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--badge-bg); color: var(--badge-text); padding: 6px 14px; border-radius: 40px; font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(4px); transition: all 0.2s; }
     body.light .trainee-badge { border: 1px solid rgba(37, 99, 235, 0.2); }
-    @media (max-width: 768px) { .profile-img { width: 200px; height: 200px; } .photo-verified-badge { width: 32px; height: 32px; bottom: 8px; right: 8px; } .photo-verified-badge i { font-size: 18px; } .trainee-badge { font-size: 0.75rem; padding: 4px 12px; } }
-    @media (max-width: 480px) { .photo-verified-badge { width: 28px; height: 28px; bottom: 5px; right: 5px; } .photo-verified-badge i { font-size: 16px; } }
 
+    /* Typewriter */
     .typewriter-text { font-size: 2rem; font-weight: 700; border-right: 3px solid var(--accent); white-space: nowrap; overflow: hidden; display: inline-block; animation: blinkCursor 0.75s step-end infinite; }
     @keyframes blinkCursor { 50% { border-color: transparent; } }
     .rotating-title { min-height: 4.5rem; }
-    @media (max-width: 768px) { .typewriter-text { font-size: 1.2rem; white-space: normal; border-right: none; animation: none; display: block; } .rotating-title { min-height: auto; } }
-    
+
+    /* Skills */
     .skill-bar-bg { background: rgba(255, 255, 255, 0.1); border-radius: 1rem; height: 8px; overflow: hidden; }
     .skill-bar-fill { background: var(--accent); width: 0%; height: 100%; border-radius: 1rem; transition: width 1.2s cubic-bezier(0.22, 0.97, 0.36, 1.02); }
     .skill-item { transition: transform 0.2s ease, background 0.2s; padding: 4px 8px; border-radius: 12px; }
     .skill-item:hover { transform: translateX(6px); background: rgba(59, 130, 246, 0.08); }
     .skill-percent { font-weight: 600; transition: all 0.3s; }
-    
+
+    /* Projects */
     .project-card { background: var(--bg-card-solid); border-radius: 1.5rem; overflow: hidden; transition: all 0.4s; border: 1px solid var(--border-light); height: 100%; }
     .project-card:hover { transform: translateY(-8px); box-shadow: 0 25px 40px -12px rgba(59, 130, 246, 0.25); border-color: var(--accent); }
     .project-img { height: 200px; object-fit: cover; width: 100%; transition: transform 0.5s; }
     .project-card:hover .project-img { transform: scale(1.03); }
+
+    /* Timeline */
     .timeline-item { position: relative; padding-left: 2rem; margin-bottom: 2rem; }
     .timeline-dot { position: absolute; left: 0; top: 0.3rem; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 4px var(--accent-glow); }
     .timeline-content { background: var(--bg-card); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light); }
+
+    /* Counters / Buttons */
     .counter-number { font-size: 2.2rem; font-weight: 800; color: var(--accent); }
     .btn-primary-custom { background: var(--accent); border: none; padding: 0.7rem 1.8rem; border-radius: 2rem; font-weight: 500; transition: all 0.25s; color: white; display: inline-flex; align-items: center; gap: 8px; }
     .btn-primary-custom:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5); }
     .btn-outline-accent { border: 1px solid var(--accent); background: transparent; border-radius: 2rem; padding: 0.7rem 1.8rem; color: var(--accent); transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px; }
     .btn-outline-accent:hover { background: var(--accent); color: white; transform: translateY(-2px); }
+
+    /* Contact */
     .contact-glass { background: var(--bg-card); backdrop-filter: blur(12px); border-radius: 2rem; border: 1px solid var(--border-light); }
     .social-icon-circle { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.05); transition: all 0.2s; color: var(--text-secondary); }
     .social-icon-circle:hover { background: var(--accent); color: white; transform: translateY(-3px); }
@@ -119,6 +124,7 @@
     .credential-link:hover { text-decoration: underline; opacity: 0.8; }
     footer { background: var(--bg-secondary); border-top: 1px solid var(--border-light); }
 
+    /* Light mode overrides */
     body.light .badge.bg-dark, body.light .bg-dark { background: #e2e8f0 !important; color: #0f172a !important; }
     body.light .text-secondary { color: #475569 !important; }
     body.light .text-primary { color: #1d4ed8 !important; }
@@ -130,7 +136,7 @@
     body.light input, body.light textarea { color: #0f172a !important; background: #f1f5f9 !important; }
     body.light input::placeholder, body.light textarea::placeholder { color: #64748b !important; }
     
-    /* Chatbot Styles (unchanged) */
+    /* Chatbot */
     .chatbot-widget { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
     .chat-toggle { width: 56px; height: 56px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.2s, background 0.2s; color: white; font-size: 28px; animation: glowPulse 2s infinite; }
     @keyframes glowPulse { 0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); } 70% { box-shadow: 0 0 0 12px rgba(59, 130, 246, 0); } 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); } }
@@ -148,75 +154,30 @@
     .suggestion-chip { background: var(--accent); color: white; padding: 5px 12px; border-radius: 40px; font-size: 0.7rem; cursor: pointer; transition: background 0.2s, transform 0.1s; white-space: nowrap; }
     .suggestion-chip:hover { background: var(--accent-hover); transform: translateY(-1px); }
     .chat-input-area { display: flex; align-items: center; gap: 10px; padding: 12px; background: var(--bg-card); border-top: 1px solid var(--border-light); }
-    .chat-input-area input { flex: 1; background: var(--chat-bot-bg); border: none; border-radius: 12px; padding: 12px 16px; font-size: 0.9rem; color: var(--text-primary); outline: none; transition: background 0.2s; }
+    .chat-input-area input { flex: 1; background: var(--chat-bot-bg); border: none; border-radius: 12px; padding: 12px 16px; font-size: 0.9rem; color: var(--text-primary); outline: none; transition: background 0.2s; min-width: 0; }
     .chat-input-area input:focus { background: var(--bg-card-solid); box-shadow: 0 0 0 2px var(--accent); }
-    .chat-input-area button { background: var(--accent); border: none; border-radius: 12px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, transform 0.1s; color: white; font-size: 1.2rem; }
+    .chat-input-area button { background: var(--accent); border: none; border-radius: 12px; width: 44px; height: 44px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, transform 0.1s; color: white; font-size: 1.2rem; }
     .chat-input-area button:hover { background: var(--accent-hover); transform: scale(0.96); }
-    @media (max-width: 480px) { .chat-window { width: calc(100vw - 40px); right: 0; bottom: 72px; } .suggestion-chip { font-size: 0.65rem; white-space: normal; } .suggestions { flex-wrap: wrap; } .chat-input-area input { padding: 10px 14px; } .chat-input-area button { width: 40px; height: 40px; } }
+
     .copy-toast { position: fixed; bottom: 100px; right: 30px; background: var(--accent); color: white; padding: 6px 12px; border-radius: 40px; font-size: 0.7rem; z-index: 1100; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
+
+    /* Hire Me float */
     .hire-me-float { position: fixed; bottom: 30px; left: 30px; z-index: 1001; background: var(--accent); color: white; border: none; border-radius: 40px; padding: 10px 20px; font-weight: 600; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.2s, background 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; }
     .hire-me-float:hover { transform: scale(1.05); background: var(--accent-hover); color: white; }
-    @media (max-width: 768px) { .hire-me-float { padding: 6px 14px; font-size: 0.75rem; bottom: 20px; left: 20px; } }
+
     .visitor-counter { font-size: 0.7rem; opacity: 0.7; margin-top: 8px; }
     .connection-badge { background: #0a66c2; color: white; }
     body.light .connection-badge { background: #0a66c2; color: white; }
-    
-    /* WhatsApp input group */
-    .whatsapp-input-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    .whatsapp-input {
-      width: 100%;
-      padding: 14px 18px;
-      font-size: 1rem;
-      font-family: inherit;
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 28px;
-      color: var(--text-primary);
-      transition: box-shadow 0.2s, border-color 0.2s;
-      resize: vertical;
-    }
-    .whatsapp-input:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-glow);
-    }
-    .whatsapp-input::placeholder {
-      color: var(--text-secondary);
-      opacity: 0.6;
-    }
-    .send-btn-wa {
-      background: var(--accent);
-      border: none;
-      border-radius: 40px;
-      padding: 12px 20px;
-      font-weight: 600;
-      color: white;
-      transition: all 0.2s;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .send-btn-wa:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-    }
-    @media (min-width: 500px) {
-      .whatsapp-input-group {
-        flex-direction: row;
-      }
-      .whatsapp-input { flex: 1; }
-      .send-btn-wa { width: auto; padding: 0 24px; }
-    }
 
-    /* ========== 2. NEW APPLE LIQUID GLASS NAVBAR STYLES ========== */
+    /* WhatsApp input */
+    .whatsapp-input-group { display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto; }
+    .whatsapp-input { width: 100%; padding: 14px 18px; font-size: 1rem; font-family: inherit; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 28px; color: var(--text-primary); transition: box-shadow 0.2s, border-color 0.2s; resize: vertical; }
+    .whatsapp-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+    .whatsapp-input::placeholder { color: var(--text-secondary); opacity: 0.6; }
+    .send-btn-wa { background: var(--accent); border: none; border-radius: 40px; padding: 12px 20px; font-weight: 600; color: white; transition: all 0.2s; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; }
+    .send-btn-wa:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+    /* ====== NAVBAR STYLES ====== */
     :root {
       --glass-bg: rgba(255, 255, 255, 0.15);
       --glass-border: rgba(255, 255, 255, 0.4);
@@ -277,6 +238,7 @@
       box-shadow: 0 40px 80px -20px var(--glass-shadow), 0 10px 30px -10px var(--glass-shadow), inset 0 2px 3px -1px var(--glass-highlight), inset 0 -2px 4px -1px var(--glass-caustic), inset 0 0 0 1px var(--glass-border);
       transition: all 0.5s ease;
       z-index: 1000;
+      max-width: calc(100vw - 20px);
     }
     .liquid-nav::before {
       content: '';
@@ -287,70 +249,17 @@
       pointer-events: none;
       z-index: 6;
     }
-    .liquid-glare-container {
-      position: absolute;
-      inset: 0;
-      border-radius: 99px;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 5;
-    }
-    .liquid-glare {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      background: radial-gradient(circle 90px at var(--x, 50%) var(--y, 50%), var(--glare-color) 0%, transparent 100%);
-      mix-blend-mode: overlay;
-    }
+    .liquid-glare-container { position: absolute; inset: 0; border-radius: 99px; overflow: hidden; pointer-events: none; z-index: 5; }
+    .liquid-glare { position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s ease; background: radial-gradient(circle 90px at var(--x, 50%) var(--y, 50%), var(--glare-color) 0%, transparent 100%); mix-blend-mode: overlay; }
     .liquid-nav:hover .liquid-glare { opacity: 1; }
     .nav-items { position: relative; display: flex; gap: 4px; z-index: 3; }
-    .active-pill {
-      position: absolute;
-      top: 0; left: 0;
-      height: 44px;
-      background: var(--pill-bg);
-      border-radius: 99px;
-      box-shadow: var(--pill-shadow);
-      transition: transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1), width 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
-      z-index: 1;
-    }
-    .nav-btn {
-      position: relative;
-      background: transparent;
-      border: none;
-      padding: 0 20px;
-      height: 44px;
-      border-radius: 99px;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--icon-color);
-      cursor: pointer;
-      transition: color 0.3s ease;
-      outline: none;
-      z-index: 2;
-    }
+    .active-pill { position: absolute; top: 0; left: 0; height: 44px; background: var(--pill-bg); border-radius: 99px; box-shadow: var(--pill-shadow); transition: transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1), width 0.5s cubic-bezier(0.34, 1.2, 0.64, 1); z-index: 1; }
+    .nav-btn { position: relative; background: transparent; border: none; padding: 0 20px; height: 44px; border-radius: 99px; font-family: inherit; font-size: 15px; font-weight: 600; color: var(--icon-color); cursor: pointer; transition: color 0.3s ease; outline: none; z-index: 2; white-space: nowrap; }
     .btn-content { display: flex; align-items: center; gap: 8px; pointer-events: none; transition: transform 0.2s cubic-bezier(0.32, 0.72, 0, 1); }
     .nav-btn:active .btn-content { transform: scale(0.92); }
     .nav-btn.active { color: var(--icon-active); }
-    .divider { width: 1px; height: 24px; background: var(--divider); margin: 0 4px; z-index: 3; transition: background 0.5s ease; }
-    .theme-nav-btn {
-      background: transparent;
-      border: none;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      color: var(--icon-color);
-      cursor: pointer;
-      z-index: 3;
-      outline: none;
-      margin-left: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: color 0.3s ease;
-    }
+    .divider { width: 1px; height: 24px; background: var(--divider); margin: 0 4px; z-index: 3; transition: background 0.5s ease; flex-shrink: 0; }
+    .theme-nav-btn { background: transparent; border: none; width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; color: var(--icon-color); cursor: pointer; z-index: 3; outline: none; margin-left: 2px; display: flex; align-items: center; justify-content: center; transition: color 0.3s ease; }
     .theme-nav-btn:hover, .theme-nav-btn:active { color: var(--icon-active); }
     .theme-icon-wrapper { position: relative; width: 20px; height: 20px; pointer-events: none; transition: transform 0.2s cubic-bezier(0.32, 0.72, 0, 1); }
     .theme-nav-btn:active .theme-icon-wrapper { transform: scale(0.8); }
@@ -359,24 +268,156 @@
     .moon-icon { opacity: 0; transform: rotate(-90deg) scale(0); }
     body.light .sun-icon { opacity: 0; transform: rotate(90deg) scale(0); }
     body.light .moon-icon { opacity: 1; transform: rotate(0deg) scale(1); }
-    @media (max-width: 700px) {
-      .liquid-nav { top: 10px; padding: 6px; }
-      .nav-btn { padding: 0 12px; }
+
+    main { padding-top: 90px; }
+
+    /* ====== LEFT SPACING IMPROVEMENTS FOR HERO SECTION ====== */
+    @media (min-width: 992px) {
+      .hero-section .col-lg-7 {
+        padding-left: 2rem !important;
+      }
+      .hero-section .col-lg-7 .d-flex.gap-3,
+      .hero-section .col-lg-7 .mt-4.d-flex {
+        justify-content: flex-start;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+      .hero-section .col-lg-7 {
+        padding-left: 1.5rem !important;
+      }
+    }
+    /* Keep original wording and structure, only spacing adjusted */
+
+    /* ====== RESPONSIVE BREAKPOINTS ====== */
+
+    /* Large tablets and small desktops */
+    @media (max-width: 991px) {
+      .profile-img { width: 220px; height: 220px; }
+      .typewriter-text { font-size: 1.6rem; }
+      .rotating-title { min-height: 3.5rem; }
+    }
+
+    /* Tablets */
+    @media (max-width: 768px) {
+      main { padding-top: 80px; }
+
+      .profile-img { width: 180px; height: 180px; }
+      .photo-verified-badge { width: 32px; height: 32px; bottom: 8px; right: 8px; }
+      .photo-verified-badge i { font-size: 18px; }
+      .trainee-badge { font-size: 0.75rem; padding: 4px 12px; }
+      .typewriter-text { font-size: 1.3rem; white-space: normal; border-right: none; animation: none; display: block; }
+      .rotating-title { min-height: auto; margin-bottom: 1rem; }
+      .hero-section { padding-top: 1rem; }
+      .hero-section .col-lg-5 { margin-top: 1.5rem; }
+      h1.display-4 { font-size: 1.9rem; }
+      .counter-number { font-size: 1.8rem; }
+
+      /* Nav */
+      .nav-btn { padding: 0 10px; font-size: 13px; }
       .btn-content span { display: none; }
       .btn-content svg { margin: 0; }
       .divider { margin: 0 2px; }
+
+      /* Hire Me + Chatbot overlap fix */
+      .hire-me-float { padding: 8px 14px; font-size: 0.78rem; bottom: 90px; left: 16px; }
+      .chatbot-widget { bottom: 16px; right: 16px; }
+
+      /* Contact */
+      .whatsapp-input-group { max-width: 100%; }
+
+      /* Footer text wrap */
+      footer p { font-size: 0.72rem; }
     }
+
+    /* Mobile landscape + small tablets */
+    @media (max-width: 600px) {
+      .liquid-nav { top: 10px; padding: 5px; }
+      .nav-btn { padding: 0 8px; height: 40px; }
+      .active-pill { height: 40px; }
+      .theme-nav-btn { width: 40px; height: 40px; }
+    }
+
+    /* Small phones */
     @media (max-width: 480px) {
-      .liquid-nav { transform: translateX(-50%) scale(0.9); transform-origin: top center; }
+      main { padding-top: 72px; }
+
+      .liquid-nav {
+        top: 8px;
+        padding: 4px;
+        transform: translateX(-50%) scale(0.88);
+        transform-origin: top center;
+      }
+      .nav-btn { padding: 0 7px; height: 38px; }
+      .active-pill { height: 38px; }
+
+      .photo-verified-badge { width: 28px; height: 28px; bottom: 5px; right: 5px; }
+      .photo-verified-badge i { font-size: 16px; }
+      .profile-img { width: 150px; height: 150px; }
+
+      h1.display-4 { font-size: 1.6rem; }
+      .lead { font-size: 0.92rem; }
+      .counter-number { font-size: 1.5rem; }
+
+      .btn-primary-custom, .btn-outline-accent { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
+      
+      .chat-window { width: calc(100vw - 32px); right: 0; bottom: 72px; height: 420px; max-height: 65vh; }
+      .suggestion-chip { font-size: 0.65rem; white-space: normal; }
+      .chat-input-area input { padding: 10px 12px; font-size: 0.85rem; }
+      .chat-input-area button { width: 38px; height: 38px; }
+      .message { font-size: 0.8rem; }
+
+      .hire-me-float { padding: 7px 13px; font-size: 0.75rem; bottom: 82px; left: 12px; }
+      .chatbot-widget { bottom: 12px; right: 12px; }
+      .chat-toggle { width: 50px; height: 50px; font-size: 24px; }
+
+      .skill-item { padding: 3px 6px; }
+      .skill-percent { font-size: 0.85rem; }
+
+      .glass-card { border-radius: 1.2rem; }
+      .contact-glass { border-radius: 1.4rem; padding: 1.5rem 1rem !important; }
+      .project-img { height: 160px; }
+
+      section.py-5 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+
+      [style*="max-height: 500px"] { max-height: 350px !important; }
+
+      .d-flex.flex-wrap.gap-2 { gap: 0.4rem !important; }
+      .badge { font-size: 0.72rem; padding: 0.3rem 0.6rem !important; }
     }
-    main { padding-top: 90px; }
-    @media (max-width: 700px) { main { padding-top: 80px; } }
+
+    /* Extra small: 360px and below */
+    @media (max-width: 360px) {
+      .liquid-nav { transform: translateX(-50%) scale(0.8); }
+      h1.display-4 { font-size: 1.4rem; }
+      .profile-img { width: 130px; height: 130px; }
+      .hire-me-float span { display: none; }
+      .hire-me-float { padding: 9px 12px; border-radius: 50%; min-width: 44px; justify-content: center; }
+    }
+
+    /* WhatsApp row layout on wider screens */
+    @media (min-width: 500px) {
+      .whatsapp-input-group { flex-direction: row; }
+      .whatsapp-input { flex: 1; }
+      .send-btn-wa { width: auto; padding: 0 24px; }
+    }
+
+    /* Ensure hero text is always readable */
+    @media (max-width: 575px) {
+      .hero-section .col-lg-7 { text-align: center; }
+      .hero-section .d-flex.gap-3 { justify-content: center; }
+      .hero-section .mt-4.d-flex { justify-content: center; }
+      .hero-section .col-lg-5 p { font-size: 0.85rem; }
+    }
+
+    /* Prevent horizontal scroll on all widths */
+    .container, .row { max-width: 100%; }
+    img { max-width: 100%; height: auto; }
   </style>
 </head>
 <body class="dark-mode">
 <div class="floating-bg"></div>
 
-<!-- ========== NEW APPLE LIQUID GLASS NAVBAR ========== -->
+<!-- NAVBAR -->
 <nav class="liquid-nav" id="liquidNav">
   <div class="liquid-glare-container"><div class="liquid-glare" id="glare"></div></div>
   <div class="nav-items">
@@ -399,7 +440,7 @@
 </nav>
 
 <main>
-  <!-- ALL EXISTING CONTENT SECTIONS (completely unchanged) -->
+  <!-- HOME -->
   <section id="home" class="hero-section">
     <div class="container py-5">
       <div class="row align-items-center g-5">
@@ -418,7 +459,7 @@
             <span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill"><i class="fas fa-database"></i> MySQL</span>
             <span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill"><i class="fab fa-docker"></i> Docker</span>
             <a href="https://github.com/MOSHEK077" target="_blank" class="text-decoration-none"><span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill"><span id="githubFollowers">⟳</span></span></a>
-            <a href="https://www.linkedin.com/in/msjones07/" target="_blank" class="text-decoration-none"><span class="badge px-3 py-2 rounded-pill connection-badge" style="background: #0a66c2;"><i class="bi bi-linkedin"></i> <span id="linkedinConnections">1,000+</span> connections</span></a>
+            <a href="https://www.linkedin.com/in/msjones07/" target="_blank" class="text-decoration-none"><span class="badge px-3 py-2 rounded-pill connection-badge"><i class="bi bi-linkedin"></i> <span id="linkedinConnections">1,000+</span> connections</span></a>
           </div>
         </div>
         <div class="col-lg-5 text-center" data-aos="fade-up" data-aos-delay="200">
@@ -433,25 +474,31 @@
     </div>
   </section>
 
+  <!-- ABOUT + SKILLS -->
   <section id="about" class="py-5"><div class="container"><div class="row g-5"><div class="col-md-6" data-aos="fade-right"><div class="glass-card p-4 h-100"><h2 class="fw-bold mb-3" style="color: var(--accent);"><i class="bi bi-person-badge me-2"></i>About Me</h2><p class="text-secondary lh-lg">I'm a passionate Java Full Stack Developer with a strong foundation in building scalable web applications and backend systems. Proficient in Java, Spring Boot, MySQL, and modern frontend technologies. As an incoming <strong class="text-primary">Graduate Trainee at TCS</strong>, I bring problem-solving mindset, fast learning ability, and dedication to high-quality code.</p><p class="text-secondary">I focus on secure coding (AES-256, HMAC), layered architecture, and delivering production-ready REST APIs. Outside coding, I enjoy content creation, playing piano, and contributing to developer communities. Verified skills and commitment to excellence.</p></div></div><div class="col-md-6" data-aos="fade-left" id="skills"><div class="glass-card p-4 h-100"><h2 class="fw-bold mb-4" style="color: var(--accent);"><i class="bi bi-code-slash me-2"></i>Technical Expertise</h2><div class="skill-item"><div class="d-flex justify-content-between"><span>Java / Spring Boot</span><span class="skill-percent" data-target="90">0%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div></div><div class="skill-item"><div class="d-flex justify-content-between"><span>REST API / Microservices</span><span class="skill-percent" data-target="85">0%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div></div><div class="skill-item"><div class="d-flex justify-content-between"><span>SQL / JPA / Hibernate</span><span class="skill-percent" data-target="85">0%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div></div><div class="skill-item"><div class="d-flex justify-content-between"><span>HTML5 / CSS3 / Bootstrap</span><span class="skill-percent" data-target="80">0%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div></div><div class="skill-item"><div class="d-flex justify-content-between"><span>Docker / Git / Maven</span><span class="skill-percent" data-target="78">0%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="78"></div></div></div><div class="mt-4 d-flex flex-wrap gap-2"><span class="badge bg-primary bg-opacity-20 p-2">Problem Solving</span><span class="badge bg-primary bg-opacity-20 p-2">Team Collaboration</span><span class="badge bg-primary bg-opacity-20 p-2">Agile Mindset</span><span class="badge bg-primary bg-opacity-20 p-2">Secure Coding</span></div></div></div></div></div></section>
 
+  <!-- COUNTERS -->
   <section class="py-4"><div class="container"><div class="row text-center g-4" data-aos="zoom-in-up"><div class="col-md-3 col-6"><div class="glass-card p-3"><div class="counter-number" data-count="6">0</div><p class="mb-0 fw-medium">Projects Completed</p></div></div><div class="col-md-3 col-6"><div class="glass-card p-3"><div class="counter-number" data-count="12">0</div><p class="mb-0 fw-medium">Certifications</p></div></div><div class="col-md-3 col-6"><div class="glass-card p-3"><div class="counter-number" data-count="520">0</div><p class="mb-0 fw-medium">GitHub Commits</p></div></div><div class="col-md-3 col-6"><div class="glass-card p-3"><div class="counter-number" data-count="3">0</div><p class="mb-0 fw-medium">Achievements</p></div></div></div></div></section>
 
+  <!-- TESTIMONIALS -->
   <section class="py-4"><div class="container"><div class="text-center mb-4" data-aos="fade-up"><h2 class="fw-bold" style="color: var(--accent);"><i class="bi bi-chat-quote-fill me-2"></i>What People Say</h2><p class="text-secondary">Feedback from mentors and peers</p></div><div class="row g-4" data-aos="fade-up" data-aos-delay="100"><div class="col-md-6"><div class="glass-card p-4 text-center"><i class="bi bi-chat-quote-fill fs-1 text-primary"></i><p class="mt-3">"Moshek is a dedicated developer with strong problem-solving skills. He delivered the backend for our project on time with clean code."</p><h6 class="mt-2 text-primary">— Project Guide, JClick Solutions</h6></div></div><div class="col-md-6"><div class="glass-card p-4 text-center"><i class="bi bi-chat-quote-fill fs-1 text-primary"></i><p class="mt-3">"His Spring Boot knowledge and attention to security (AES, HMAC) made a big difference in our medical data transfer project."</p><h6 class="mt-2 text-primary">— Senior Developer, Freelance Collab</h6></div></div></div></div></section>
 
+  <!-- PROJECTS -->
   <section id="projects" class="py-5"><div class="container"><div class="text-center mb-5" data-aos="fade-down"><h2 class="fw-bold" style="color: var(--accent);"><i class="bi bi-folder2-open"></i> Featured Projects</h2><p class="text-secondary">Real-world applications, end-to-end development</p></div><div class="row g-4"><div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100"><div class="project-card"><img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600" class="project-img" alt="Food Ordering"><div class="p-3"><h5 class="fw-bold">Food Ordering System</h5><p class="small text-secondary">Java Servlets, MySQL, HTML/CSS</p><p class="small">Real-time menu browsing, order management with secure backend.</p><a href="https://github.com/MOSHEK077/foodordeing" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill mt-2"><i class="bi bi-github"></i> Code</a></div></div></div><div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="200"><div class="project-card"><img src="https://images.pexels.com/photos/5380668/pexels-photo-5380668.jpeg?auto=compress&cs=tinysrgb&w=600" class="project-img" alt="Medical Data"><div class="p-3"><h5 class="fw-bold">Secure Medical Data System</h5><p class="small text-secondary">AES-256, HMAC, JSP, MySQL</p><p class="small">Data integrity, encryption + integrity verification for healthcare.</p><a href="https://github.com/MOSHEK077/MedicalDataTransferUsingCryptography" class="btn btn-sm btn-outline-primary rounded-pill mt-2"><i class="bi bi-github"></i> Code</a></div></div></div><div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="300"><div class="project-card"><img src="https://images.pexels.com/photos/6238048/pexels-photo-6238048.jpeg?auto=compress&cs=tinysrgb&w=600" class="project-img" alt="E-Commerce"><div class="p-3"><h5 class="fw-bold">E-Commerce Backend</h5><p class="small text-secondary">Spring Boot, JPA, Docker, MySQL</p><p class="small">REST APIs, layered architecture, product & order management.</p><a href="https://github.com/MOSHEK077/SpringBootE-Commerce" class="btn btn-sm btn-outline-primary rounded-pill mt-2"><i class="bi bi-github"></i> Code</a></div></div></div></div></div></section>
 
+  <!-- EDUCATION + CERTIFICATIONS -->
   <section id="education" class="py-5"><div class="container"><div class="row g-4"><div class="col-lg-6" data-aos="fade-right"><div class="glass-card p-4"><h3 class="fw-bold mb-4"><i class="bi bi-mortarboard-fill me-2" style="color: var(--accent);"></i>Education</h3><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h5>Java Full Stack Development</h5><span class="badge bg-info bg-opacity-25 mb-2">Jun 2025 – Dec 2025</span><p>@JClick Solutions, Nagercoil — Intensive training in Spring Boot, REST APIs, Microservices.</p></div></div><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h5>B.Sc in Physics</h5><span class="badge bg-info bg-opacity-25 mb-2">2022 – 2025</span><p>Scott Christian College, Percentage: 68% — Minors in Computer Applications.</p></div></div><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h5>H.Sc in Computer Science</h5><span class="badge bg-info bg-opacity-25 mb-2">2019 – 2022</span><p>GHSS, Thovalai — Percentage: 65.16%</p></div></div></div></div><div class="col-lg-6" data-aos="fade-left" id="certifications"><div class="glass-card p-4"><h3 class="fw-bold mb-4"><i class="bi bi-patch-check-fill me-2" style="color: var(--accent);"></i>Certifications & Credentials</h3><div style="max-height: 500px; overflow-y: auto; padding-right: 8px;"><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-journal-bookmark-fill text-primary"></i><strong>Java Full Stack</strong></div><span class="cert-badge">JCLICK SOLUTIONS</span> <span class="cert-badge">Issued Jun 2025</span><p class="small mt-1 mb-1">Skills: Java Development, Java Swing, Spring Boot, Hibernate, REST APIs</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-linkedin text-info"></i><strong>Java Object-Oriented Programming</strong></div><span class="cert-badge">LinkedIn</span> <span class="cert-badge">Issued Sep 2025</span><p class="small mt-1 mb-1">Object-Oriented Programming (OOP), Java</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-building text-success"></i><strong>Communication Skill - Advanced</strong></div><span class="cert-badge">NSDC</span> <span class="cert-badge">Issued Jul 2025</span><p class="small mt-1 mb-1">Communication, Professional Skills</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-code-square text-warning"></i><strong>Java (Basic) - HackerRank</strong></div><span class="cert-badge">HackerRank</span> <span class="cert-badge">Issued Jul 2025</span><p class="small mt-1 mb-1">Completed timed assessment for Java basics.</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-cloud-arrow-up text-primary"></i><strong>AWS Developer - Associate (Aurora MySQL)</strong></div><span class="cert-badge">Amazon Web Services</span> <span class="cert-badge">Issued Jul 2025</span><p class="small mt-1 mb-1">Amazon Aurora MySQL, Database Management</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-graph-up text-danger"></i><strong>Python - Kaggle</strong></div><span class="cert-badge">Kaggle</span> <span class="cert-badge">Issued Apr 2025</span><p class="small mt-1 mb-1">Python fundamentals, data handling, scripting for data projects</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-reception-4 text-info"></i><strong>Python Programming (NSDC) - Reliance Foundation</strong></div><span class="cert-badge">Reliance Foundation</span> <span class="cert-badge">Issued Mar 2025</span><p class="small mt-1 mb-1">Python, Debugging, File Handling, Problem Solving</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-rocket-takeoff text-warning"></i><strong>SPACE SCIENCE AND TECHNOLOGY AWARENESS (START)</strong></div><span class="cert-badge">ISRO</span> <span class="cert-badge">Issued Jan 2025</span><p class="small mt-1 mb-1">Space Science, Satellite Technology, Astrophysics, Remote Sensing</p><a href="#" class="credential-link" target="_blank">Credential ID: 461aa81d476d520017a99e3e4b0108ec <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-google text-danger"></i><strong>Crash Course on Python</strong></div><span class="cert-badge">Google</span> <span class="cert-badge">Issued Jan 2025</span><p class="small mt-1 mb-1">Python, Debugging, Automation</p><a href="#" class="credential-link" target="_blank">Credential ID: 5K8P49D9ARGN <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-lightning-charge-fill text-secondary"></i><strong>Electrical Systems: Communications and Data</strong></div><span class="cert-badge">LinkedIn</span> <span class="cert-badge">Issued Oct 2024</span><p class="small mt-1 mb-1">Mechanical, Electrical, and Plumbing (MEP)</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div></div></div></div></div></div></section>
 
+  <!-- CONTACT -->
   <section id="contact" class="py-5">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8" data-aos="zoom-in">
           <div class="contact-glass p-4 p-md-5 text-center">
-            <h2 class="fw-bold mb-3" style="color: var(--accent);"><i class="bi bi-chat-dots-fill"></i> Let’s Connect</h2>
+            <h2 class="fw-bold mb-3" style="color: var(--accent);"><i class="bi bi-chat-dots-fill"></i> Let's Connect</h2>
             <p class="text-secondary mb-4">I'm open to opportunities, collaborations, or just a tech chat.</p>
             <div class="row justify-content-center gy-4 mb-4">
-              <div class="col-sm-6"><div class="glass-card p-3"><i class="bi bi-envelope fs-2" style="color: var(--accent);"></i><br><a href="mailto:jonesmoshekofficial@gmail.com" class="text-decoration-none text-primary">jonesmoshekofficial@gmail.com</a></div></div>
+              <div class="col-sm-6"><div class="glass-card p-3"><i class="bi bi-envelope fs-2" style="color: var(--accent);"></i><br><a href="mailto:jonesmoshekofficial@gmail.com" class="text-decoration-none text-primary" style="font-size: clamp(0.7rem, 2.5vw, 0.9rem);">jonesmoshekofficial@gmail.com</a></div></div>
               <div class="col-sm-6"><div class="glass-card p-3"><i class="bi bi-telephone fs-2" style="color: var(--accent);"></i><br><a href="tel:+919500434636" class="text-decoration-none text-primary">+91 9500434636</a></div></div>
             </div>
             <div class="whatsapp-input-group">
@@ -474,14 +521,14 @@
 
 <footer class="py-4 mt-5"><div class="container text-center"><p class="text-secondary small mb-0">© 2026 Moshek Shaju Jones J — Crafted with <i class="bi bi-heart-fill text-danger"></i> for Java & Innovation | <i class="bi bi-patch-check-fill text-primary"></i> Verified Portfolio | <i class="bi bi-linkedin"></i> 1,000+ connections</p></div></footer>
 
-<a href="#contact" class="hire-me-float"><i class="bi bi-briefcase-fill"></i> Hire Me</a>
+<a href="#contact" class="hire-me-float"><i class="bi bi-briefcase-fill"></i> <span>Hire Me</span></a>
 
-<!-- Chatbot Widget -->
+<!-- Chatbot -->
 <div class="chatbot-widget">
   <div class="chat-toggle" id="chatToggle"><i class="bi bi-chat-dots-fill"></i></div>
   <div class="chat-window" id="chatWindow">
-    <div class="chat-header"><span><i class="bi bi-robot"></i> JX Assistant</span><button id="chatClose"><i class="bi bi-x-lg"></i></button></div>
-    <div class="chat-messages" id="chatMessages"><div class="message bot-message">🤖 Hi! I'm JX Assistant, your guide to Moshek's portfolio. Click any of my answers to copy them. Try asking:</div></div>
+    <div class="chat-header"><span><i class="bi bi-robot"></i> JX Assistant (AI)</span><button id="chatClose"><i class="bi bi-x-lg"></i></button></div>
+    <div class="chat-messages" id="chatMessages"><div class="message bot-message">🤖 Hi! I'm JX Assistant, now powered by Google Gemini AI. Ask me anything about Moshek's portfolio!</div></div>
     <div class="suggestions" id="suggestions"></div>
     <div class="chat-input-area"><input type="text" id="chatInput" placeholder="Type a message..."><button id="chatSend"><i class="bi bi-send-fill"></i></button></div>
   </div>
@@ -491,10 +538,82 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  // Initialize AOS
+  // ========================
+  // 1. 🔑 SET YOUR GEMINI API KEY HERE
+  // Get it for free: https://aistudio.google.com/
+  // ========================
+  const GEMINI_API_KEY = "AQ.Ab8RN6KH2cdvGb3kDwWG4TQjGTXfOWMtwtJmagUAqvZ8pw7fTw";  // <--- REPLACE THIS
+  const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+  // Portfolio context for the AI
+  const PORTFOLIO_CONTEXT = `
+You are JX Assistant, a helpful and friendly chatbot on Moshek Shaju Jones's portfolio website.
+
+ABOUT MOSHEK:
+- Name: Moshek Shaju Jones J
+- Role: Java Developer, Incoming Graduate Trainee at TCS
+- Location: Chennai, India
+- Email: jonesmoshekofficial@gmail.com
+- Phone: +91 9500434636
+
+SKILLS:
+Java 17+, Spring Boot, MySQL, Docker, REST APIs, Microservices, JPA/Hibernate, HTML5/CSS3/Bootstrap, Git, Maven, Problem Solving, Team Collaboration, Agile Mindset, Secure Coding (AES-256, HMAC).
+
+PROJECTS:
+1. Food Ordering System (Java Servlets, MySQL, HTML/CSS) – real-time menu browsing, order management.
+2. Secure Medical Data System (AES-256, HMAC, JSP, MySQL) – data integrity and encryption for healthcare.
+3. E-Commerce Backend (Spring Boot, JPA, Docker, MySQL) – REST APIs, layered architecture.
+
+EDUCATION:
+- Java Full Stack Development at JClick Solutions, Nagercoil (Jun 2025 – Dec 2025)
+- B.Sc Physics at Scott Christian College (2022–2025), 68% with minor in Computer Applications
+- H.Sc Computer Science at GHSS Thovalai (2019–2022), 65.16%
+
+CERTIFICATIONS (12 total): Java Full Stack (JClick), Java OOP (LinkedIn), Communication Advanced (NSDC), Java Basic (HackerRank), AWS Developer – Aurora MySQL, Python (Kaggle, Google, Reliance Foundation), ISRO START (Space Science), Electrical Systems (LinkedIn).
+
+ACHIEVEMENTS: 6+ projects, 12+ certifications, 520+ GitHub commits, 3 coding contest achievements.
+
+RULES:
+- Answer ONLY questions about Moshek's professional portfolio.
+- Keep answers warm, concise (2–4 sentences unless details requested).
+- If asked something outside his profile, say: "I can only answer questions about Moshek's portfolio. Feel free to ask about his skills, projects, education, or contact info."
+- Do not make up facts – stick to the data above.
+`;
+
+  // Function to call Gemini API
+  async function askGemini(question) {
+    if (!GEMINI_API_KEY || GEMINI_API_KEY === "YOUR_GEMINI_API_KEY_HERE") {
+      return "⚠️ Gemini API key is missing. Please set your API key in the JavaScript code (GEMINI_API_KEY variable). Get one free at https://aistudio.google.com/";
+    }
+    const prompt = `${PORTFOLIO_CONTEXT}\n\nUser asks: "${question}"\n\nYour response:`;
+    const requestBody = {
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: { temperature: 0.7, maxOutputTokens: 300 }
+    };
+    try {
+      const response = await fetch(GEMINI_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(requestBody)
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Gemini API error:", errorData);
+        return `❌ API error (${response.status}). Check console for details.`;
+      }
+      const data = await response.json();
+      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!text) return "Sorry, I didn't understand that. Could you rephrase?";
+      return text.trim();
+    } catch (error) {
+      console.error("Fetch error:", error);
+      return "Network error. Please try again later.";
+    }
+  }
+
+  // Everything else (AOS, counters, navbar, etc.) remains untouched
   AOS.init({ duration: 800, once: true, offset: 60 });
 
-  // Typewriter effect
   const titles = ["Java Developer", "Spring Boot Enthusiast", "Incoming Graduate Trainee @ TCS", "Problem Solver", "Secure Code Expert"];
   let idx = 0, charIdx = 0, isDeleting = false;
   const typewriterSpan = document.getElementById("typewriter");
@@ -513,30 +632,18 @@
   }
   typeEffect();
 
-  // Dark mode handling (integrated with new navbar theme button)
   const body = document.body;
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'light') body.classList.add('light');
-  else body.classList.remove('light'); // default dark
+  else body.classList.remove('light');
 
   const themeNavBtn = document.getElementById('themeNavBtn');
-  function updateThemeIcons() {
-    // No extra action needed – CSS handles icon visibility
-  }
   themeNavBtn.addEventListener('click', () => {
     body.classList.toggle('light');
-    const isLight = body.classList.contains('light');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    updateThemeIcons();
-    // Recalculate pill position after theme changes (fonts may shift slightly)
-    setTimeout(() => {
-      const active = document.querySelector('.nav-btn.active');
-      if (active) updatePill(active);
-    }, 50);
+    localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark');
+    setTimeout(() => { const active = document.querySelector('.nav-btn.active'); if (active) updatePill(active); }, 50);
   });
-  updateThemeIcons();
 
-  // Navbar sliding pill logic
   const navBtns = document.querySelectorAll('.nav-btn');
   const activePill = document.getElementById('activePill');
   function updatePill(btn, smooth = true) {
@@ -552,20 +659,13 @@
       btn.classList.add('active');
       updatePill(btn);
       const sectionId = btn.getAttribute('data-section');
-      if (sectionId) {
-        const target = document.getElementById(sectionId);
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (sectionId) { const target = document.getElementById(sectionId); if (target) target.scrollIntoView({ behavior: 'smooth' }); }
     });
   });
   const initialActive = document.querySelector('.nav-btn.active');
   if (initialActive) setTimeout(() => updatePill(initialActive, false), 50);
-  window.addEventListener('resize', () => {
-    const active = document.querySelector('.nav-btn.active');
-    if (active) updatePill(active, false);
-  });
+  window.addEventListener('resize', () => { const active = document.querySelector('.nav-btn.active'); if (active) updatePill(active, false); });
 
-  // Mouse glare effect on navbar
   const liquidNav = document.getElementById('liquidNav');
   const glare = document.getElementById('glare');
   liquidNav.addEventListener('mousemove', (e) => {
@@ -574,19 +674,18 @@
     glare.style.setProperty('--y', `${e.clientY - rect.top}px`);
   });
 
-  // GitHub followers, visitor counter, skill animations, WhatsApp, chatbot (all identical to previous)
   fetch('https://api.github.com/users/MOSHEK077')
     .then(res => res.json())
     .then(data => { if (data.followers) document.getElementById('githubFollowers').innerText = data.followers; else document.getElementById('githubFollowers').innerHTML = '<i class="bi bi-github"></i> Follow'; })
     .catch(() => document.getElementById('githubFollowers').innerHTML = '<i class="bi bi-github"></i> Connect');
-  
+
   fetch('https://api.countapi.xyz/hit/moshek-portfolio/visits')
     .then(res => res.json())
     .then(data => { document.getElementById('visitorCount').innerText = data.value; })
     .catch(() => { document.getElementById('visitorCount').innerText = '★'; });
-  
+
   document.getElementById('linkedinConnections').innerText = '1,000+';
-  
+
   const skillBars = document.querySelectorAll(".skill-bar-fill");
   const skillPercentSpans = document.querySelectorAll(".skill-percent");
   const counterElements = document.querySelectorAll(".counter-number");
@@ -599,39 +698,32 @@
       skillBars.forEach(bar => { const width = bar.getAttribute("data-width"); if(width) bar.style.width = width + "%"; });
       skillPercentSpans.forEach(span => {
         const target = parseInt(span.getAttribute("data-target"));
-        let current = 0;
-        const step = target / 45;
-        const interval = setInterval(() => {
-          current += step;
-          if (current >= target) { span.innerText = target + "%"; clearInterval(interval); }
-          else { span.innerText = Math.floor(current) + "%"; }
-        }, 20);
+        let current = 0; const step = target / 45;
+        const interval = setInterval(() => { current += step; if (current >= target) { span.innerText = target + "%"; clearInterval(interval); } else { span.innerText = Math.floor(current) + "%"; } }, 20);
       });
       counterElements.forEach(counter => {
         const target = parseInt(counter.getAttribute("data-count"));
-        let count = 0;
-        const step = target / 55;
-        const interval = setInterval(() => {
-          count += step;
-          if (count >= target) { counter.innerText = target; clearInterval(interval); }
-          else { counter.innerText = Math.floor(count); }
-        }, 25);
+        let count = 0; const step = target / 55;
+        const interval = setInterval(() => { count += step; if (count >= target) { counter.innerText = target; clearInterval(interval); } else { counter.innerText = Math.floor(count); } }, 25);
       });
       animated = true;
     }
   }
   window.addEventListener("scroll", animateSkills);
   window.addEventListener("load", animateSkills);
-  
+
   function sendWhatsApp() {
     let msg = document.getElementById("waMessage").value.trim();
     if (msg === "") { alert("Please enter a message"); return; }
     window.open(`https://wa.me/919500434636?text=${encodeURIComponent(msg)}`, "_blank");
   }
   window.sendWhatsApp = sendWhatsApp;
+
   window.addEventListener("scroll", () => { if(window.scrollY > 20) document.querySelector(".liquid-nav")?.classList.add("scrolled"); else document.querySelector(".liquid-nav")?.classList.remove("scrolled"); });
-  
-  // Chatbot (same as original – fully functional)
+
+  // ========================
+  // Chatbot UI (now using Gemini)
+  // ========================
   const chatToggleBtn = document.getElementById('chatToggle');
   const chatWindowDiv = document.getElementById('chatWindow');
   const chatCloseBtn = document.getElementById('chatClose');
@@ -643,8 +735,7 @@
 
   function showToastMsg(message) { copyToastDiv.textContent = message; copyToastDiv.style.opacity = '1'; setTimeout(() => { copyToastDiv.style.opacity = '0'; }, 2000); }
   function copyToClipboardText(text) { navigator.clipboard.writeText(text).then(() => showToastMsg("📋 Copied to clipboard!")).catch(() => showToastMsg("⚠️ Could not copy")); }
-  function toggleChatWindow() { chatWindowDiv.classList.toggle('open'); }
-  chatToggleBtn.addEventListener('click', toggleChatWindow);
+  chatToggleBtn.addEventListener('click', () => chatWindowDiv.classList.toggle('open'));
   chatCloseBtn.addEventListener('click', () => chatWindowDiv.classList.remove('open'));
 
   function addMessageToChat(text, isUser, isHtml = false) {
@@ -656,67 +747,25 @@
     chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
   }
 
-  const portfolio = {
-    name: "Moshek Shaju Jones J", role: "Java Developer and incoming Graduate Trainee at TCS", location: "Chennai, India",
-    email: "jonesmoshekofficial@gmail.com", phone: "+91 9500434636",
-    skills: ["Java", "Spring Boot", "REST APIs", "SQL/JPA/Hibernate", "HTML5/CSS3/Bootstrap", "Docker", "Git", "Maven", "Problem Solving", "Team Collaboration", "Agile Mindset", "Secure Coding"],
-    projects: [
-      { name: "Food Ordering System", tech: "Java Servlets, MySQL, HTML/CSS", desc: "Real-time menu browsing, order management with secure backend." },
-      { name: "Secure Medical Data System", tech: "AES-256, HMAC, JSP, MySQL", desc: "Data integrity, encryption + integrity verification for healthcare." },
-      { name: "E-Commerce Backend", tech: "Spring Boot, JPA, Docker, MySQL", desc: "REST APIs, layered architecture, product & order management." }
-    ],
-    education: [
-      { degree: "Java Full Stack Development", institution: "JClick Solutions, Nagercoil", period: "Jun 2025 – Dec 2025", details: "Intensive training in Spring Boot, REST APIs, Microservices." },
-      { degree: "B.Sc in Physics", institution: "Scott Christian College", period: "2022 – 2025", details: "Percentage: 68% — Minors in Computer Applications." },
-      { degree: "H.Sc in Computer Science", institution: "GHSS, Thovalai", period: "2019 – 2022", details: "Percentage: 65.16%" }
-    ],
-    certifications: [
-      "Java Full Stack (JCLICK SOLUTIONS, Jun 2025)", "Java Object-Oriented Programming (LinkedIn, Sep 2025)",
-      "Communication Skill - Advanced (NSDC, Jul 2025)", "Java (Basic) - HackerRank (Jul 2025)",
-      "AWS Developer - Associate (Aurora MySQL) (Jul 2025)", "Python - Kaggle (Apr 2025)",
-      "Python Programming (NSDC) - Reliance Foundation (Mar 2025)", "ISRO START Program (Space Science, Jan 2025)",
-      "Google Crash Course on Python (Jan 2025)", "Electrical Systems: Communications and Data (LinkedIn, Oct 2024)"
-    ],
-    achievements: "Completed 6+ projects, earned 12+ certifications, made over 520 GitHub commits, won 3 coding contest achievements.",
-    about: "I'm a passionate Java Full Stack Developer with a strong foundation in building scalable web applications and backend systems."
-  };
-
-  function getFormattedAnswer(question) {
-    const q = question.toLowerCase();
-    if (q.match(/^(hi|hello|hey|greetings|sup|howdy)/i)) return "👋 Hello! I'm JX Assistant. Ask me about Moshek's portfolio!";
-    if (q.match(/who is moshek|tell me about moshek/i)) return `🧑‍💻 <strong>Moshek Shaju Jones J</strong><br>${portfolio.role} from ${portfolio.location}.<br><br>📌 ${portfolio.about}`;
-    if (q.match(/skills|technologies|tech stack|expertise/i)) return `🛠️ <strong>Core Skills</strong><br>${portfolio.skills.join(" • ")}`;
-    if (q.match(/projects|portfolio|what (has|did) (he|moshek) built/i)) {
-      let reply = `<strong>📁 Featured Projects</strong><br><ul>`;
-      portfolio.projects.forEach(p => { reply += `<li><strong>${p.name}</strong> — ${p.tech}<br>${p.desc}</li>`; });
-      reply += `</ul>🔗 Check the Projects section for GitHub links.`;
-      return reply;
-    }
-    if (q.match(/education|study|college|degree|qualification/i)) {
-      let reply = `<strong>🎓 Educational Background</strong><br><ul>`;
-      portfolio.education.forEach(e => { reply += `<li><strong>${e.degree}</strong> — ${e.institution} (${e.period})<br>${e.details}</li>`; });
-      reply += `</ul>`;
-      return reply;
-    }
-    if (q.match(/certifications|certificate|credentials|isro|aws|google/i)) {
-      let reply = `<strong>📜 Certifications (${portfolio.certifications.length})</strong><br><ul>`;
-      portfolio.certifications.slice(0, 6).forEach(c => { reply += `<li>${c}</li>`; });
-      reply += `<li>+ ${portfolio.certifications.length - 6} more...</li></ul>`;
-      return reply;
-    }
-    if (q.match(/contact|email|phone|reach|get in touch/i)) return `📧 <strong>Contact</strong><br>Email: ${portfolio.email}<br>📞 Phone: ${portfolio.phone}<br>🌐 LinkedIn: 1,000+ connections`;
-    if (q.match(/tcs|graduate trainee|incoming|job|role/i)) return `💼 Moshek is an <strong>incoming Graduate Trainee at TCS</strong> with 1,000+ LinkedIn connections.`;
-    if (q.match(/achievements|awards|github commits|wins/i)) return `🏆 <strong>Achievements</strong><br>${portfolio.achievements}`;
-    if (q.match(/where (is|does) (he|moshek) (live|from|based)/i)) return `📍 Moshek is based in ${portfolio.location}.`;
-    return `❓ I can only answer questions about Moshek's portfolio. Try asking about his skills, projects, education, certifications, or contact info.`;
-  }
-
-  function handleSendMessage(question = null) {
+  async function handleSendMessage(question = null) {
     const msg = question || chatInputField.value.trim();
     if (!msg) return;
-    if (!question) { addMessageToChat(msg, true, false); chatInputField.value = ''; }
-    else { addMessageToChat(msg, true, false); }
-    setTimeout(() => { const replyHtml = getFormattedAnswer(msg); addMessageToChat(replyHtml, false, true); }, 300);
+    addMessageToChat(msg, true);
+    if (!question) chatInputField.value = '';
+    // Show typing indicator
+    const typingId = setTimeout(() => {
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'message bot-message';
+      typingDiv.innerText = '✍️ Thinking...';
+      typingDiv.id = 'typingIndicator';
+      chatMessagesDiv.appendChild(typingDiv);
+      chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+    }, 100);
+    const answer = await askGemini(msg);
+    clearTimeout(typingId);
+    const existing = document.getElementById('typingIndicator');
+    if (existing) existing.remove();
+    addMessageToChat(answer, false, true);
   }
 
   const suggestedQuestionsList = ["Who is Moshek?", "What are his skills?", "Show me his projects", "Tell me about his education", "List his certifications", "How to contact him?"];
