@@ -142,7 +142,7 @@
     body.light input::placeholder, body.light textarea::placeholder { color: #64748b !important; }
     body.light .navbar-toggler-icon { filter: invert(1); }
 
-    /* Chatbot */
+    /* Chatbot Styles */
     .chatbot-widget { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
     .chat-toggle { width: 56px; height: 56px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.2s, background 0.2s; color: white; font-size: 28px; animation: glowPulse 2s infinite; }
     @keyframes glowPulse { 0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); } 70% { box-shadow: 0 0 0 12px rgba(59, 130, 246, 0); } 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); } }
@@ -159,11 +159,12 @@
     .suggestions { padding: 8px; display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid var(--border-light); background: var(--bg-card); }
     .suggestion-chip { background: var(--accent); color: white; padding: 5px 12px; border-radius: 40px; font-size: 0.7rem; cursor: pointer; transition: background 0.2s, transform 0.1s; white-space: nowrap; }
     .suggestion-chip:hover { background: var(--accent-hover); transform: translateY(-1px); }
-    .chat-input-area { display: flex; border-top: 1px solid var(--border-light); padding: 8px; gap: 8px; }
-    .chat-input-area input { flex: 1; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 40px; padding: 8px 12px; color: var(--text-primary); outline: none; }
-    .chat-input-area button { background: var(--accent); border: none; border-radius: 40px; padding: 0 16px; color: white; font-weight: 500; transition: background 0.2s; }
-    .chat-input-area button:hover { background: var(--accent-hover); }
-    @media (max-width: 480px) { .chat-window { width: calc(100vw - 40px); right: 0; bottom: 72px; } .suggestion-chip { font-size: 0.65rem; white-space: normal; } .suggestions { flex-wrap: wrap; } }
+    .chat-input-area { display: flex; align-items: center; gap: 10px; padding: 12px; background: var(--bg-card); border-top: 1px solid var(--border-light); }
+    .chat-input-area input { flex: 1; background: var(--chat-bot-bg); border: none; border-radius: 12px; padding: 12px 16px; font-size: 0.9rem; color: var(--text-primary); outline: none; transition: background 0.2s; }
+    .chat-input-area input:focus { background: var(--bg-card-solid); box-shadow: 0 0 0 2px var(--accent); }
+    .chat-input-area button { background: var(--accent); border: none; border-radius: 12px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, transform 0.1s; color: white; font-size: 1.2rem; }
+    .chat-input-area button:hover { background: var(--accent-hover); transform: scale(0.96); }
+    @media (max-width: 480px) { .chat-window { width: calc(100vw - 40px); right: 0; bottom: 72px; } .suggestion-chip { font-size: 0.65rem; white-space: normal; } .suggestions { flex-wrap: wrap; } .chat-input-area input { padding: 10px 14px; } .chat-input-area button { width: 40px; height: 40px; } }
     .copy-toast { position: fixed; bottom: 100px; right: 30px; background: var(--accent); color: white; padding: 6px 12px; border-radius: 40px; font-size: 0.7rem; z-index: 1100; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
     .hire-me-float { position: fixed; bottom: 30px; left: 30px; z-index: 1001; background: var(--accent); color: white; border: none; border-radius: 40px; padding: 10px 20px; font-weight: 600; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.2s, background 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; }
     .hire-me-float:hover { transform: scale(1.05); background: var(--accent-hover); color: white; }
@@ -172,28 +173,64 @@
     .connection-badge { background: #0a66c2; color: white; }
     body.light .connection-badge { background: #0a66c2; color: white; }
     
-    /* Responsive fixes for contact input */
-    .input-group { flex-wrap: wrap; gap: 8px; }
-    .input-group input { border-radius: 40px !important; width: 100%; margin-bottom: 8px; }
-    .input-group button { border-radius: 40px !important; width: auto; min-width: 100px; }
-    @media (max-width: 576px) {
-      .input-group { flex-direction: column; }
-      .input-group input { margin-right: 0 !important; }
-      .input-group button { margin-left: 0 !important; width: 100%; }
-      .w-75 { width: 100% !important; }
+    /* Simple rectangular WhatsApp input - no auto resize */
+    .whatsapp-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 400px;
+      margin: 0 auto;
     }
-    /* Badge wrapping */
-    .d-flex.flex-wrap.gap-2 { gap: 8px; }
-    .badge { white-space: normal; text-align: center; }
-    /* Hero text */
-    .display-4 { font-size: calc(1.5rem + 2vw); }
-    .lead { font-size: 1rem; }
-    /* Cards */
-    .glass-card { padding: 1rem; }
-    @media (max-width: 768px) {
-      .container { padding-left: 16px; padding-right: 16px; }
-      .glass-card { padding: 0.75rem; }
-      .counter-number { font-size: 1.6rem; }
+    .whatsapp-input {
+      width: 100%;
+      padding: 14px 18px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 28px;
+      color: var(--text-primary);
+      transition: box-shadow 0.2s, border-color 0.2s;
+      resize: vertical;
+    }
+    .whatsapp-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    .whatsapp-input::placeholder {
+      color: var(--text-secondary);
+      opacity: 0.6;
+    }
+    .send-btn-wa {
+      background: var(--accent);
+      border: none;
+      border-radius: 40px;
+      padding: 12px 20px;
+      font-weight: 600;
+      color: white;
+      transition: all 0.2s;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .send-btn-wa:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+    @media (min-width: 500px) {
+      .whatsapp-input-group {
+        flex-direction: row;
+      }
+      .whatsapp-input {
+        flex: 1;
+      }
+      .send-btn-wa {
+        width: auto;
+        padding: 0 24px;
+      }
     }
   </style>
 </head>
@@ -239,16 +276,8 @@
             <span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill"><i class="fas fa-leaf"></i> Spring Boot</span>
             <span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill"><i class="fas fa-database"></i> MySQL</span>
             <span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill"><i class="fab fa-docker"></i> Docker</span>
-            <a href="https://github.com/MOSHEK077" target="_blank" class="text-decoration-none">
-              <span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill">
-                <span id="githubFollowers">⟳</span>
-              </span>
-            </a>
-            <a href="https://www.linkedin.com/in/msjones07/" target="_blank" class="text-decoration-none">
-              <span class="badge px-3 py-2 rounded-pill connection-badge" style="background: #0a66c2;">
-                <i class="bi bi-linkedin"></i> <span id="linkedinConnections">1,000+</span> connections
-              </span>
-            </a>
+            <a href="https://github.com/MOSHEK077" target="_blank" class="text-decoration-none"><span class="badge bg-dark bg-opacity-50 px-3 py-2 rounded-pill"><span id="githubFollowers">⟳</span></span></a>
+            <a href="https://www.linkedin.com/in/msjones07/" target="_blank" class="text-decoration-none"><span class="badge px-3 py-2 rounded-pill connection-badge" style="background: #0a66c2;"><i class="bi bi-linkedin"></i> <span id="linkedinConnections">1,000+</span> connections</span></a>
           </div>
         </div>
         <div class="col-lg-5 text-center" data-aos="fade-up" data-aos-delay="200">
@@ -273,20 +302,48 @@
 
   <section id="education" class="py-5"><div class="container"><div class="row g-4"><div class="col-lg-6" data-aos="fade-right"><div class="glass-card p-4"><h3 class="fw-bold mb-4"><i class="bi bi-mortarboard-fill me-2" style="color: var(--accent);"></i>Education</h3><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h5>Java Full Stack Development</h5><span class="badge bg-info bg-opacity-25 mb-2">Jun 2025 – Dec 2025</span><p>@JClick Solutions, Nagercoil — Intensive training in Spring Boot, REST APIs, Microservices.</p></div></div><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h5>B.Sc in Physics</h5><span class="badge bg-info bg-opacity-25 mb-2">2022 – 2025</span><p>Scott Christian College, Percentage: 68% — Minors in Computer Applications.</p></div></div><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h5>H.Sc in Computer Science</h5><span class="badge bg-info bg-opacity-25 mb-2">2019 – 2022</span><p>GHSS, Thovalai — Percentage: 65.16%</p></div></div></div></div><div class="col-lg-6" data-aos="fade-left" id="certifications"><div class="glass-card p-4"><h3 class="fw-bold mb-4"><i class="bi bi-patch-check-fill me-2" style="color: var(--accent);"></i>Certifications & Credentials</h3><div style="max-height: 500px; overflow-y: auto; padding-right: 8px;"><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-journal-bookmark-fill text-primary"></i><strong>Java Full Stack</strong></div><span class="cert-badge">JCLICK SOLUTIONS</span> <span class="cert-badge">Issued Jun 2025</span><p class="small mt-1 mb-1">Skills: Java Development, Java Swing, Spring Boot, Hibernate, REST APIs</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-linkedin text-info"></i><strong>Java Object-Oriented Programming</strong></div><span class="cert-badge">LinkedIn</span> <span class="cert-badge">Issued Sep 2025</span><p class="small mt-1 mb-1">Object-Oriented Programming (OOP), Java</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-building text-success"></i><strong>Communication Skill - Advanced</strong></div><span class="cert-badge">NSDC</span> <span class="cert-badge">Issued Jul 2025</span><p class="small mt-1 mb-1">Communication, Professional Skills</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-code-square text-warning"></i><strong>Java (Basic) - HackerRank</strong></div><span class="cert-badge">HackerRank</span> <span class="cert-badge">Issued Jul 2025</span><p class="small mt-1 mb-1">Completed timed assessment for Java basics.</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-cloud-arrow-up text-primary"></i><strong>AWS Developer - Associate (Aurora MySQL)</strong></div><span class="cert-badge">Amazon Web Services</span> <span class="cert-badge">Issued Jul 2025</span><p class="small mt-1 mb-1">Amazon Aurora MySQL, Database Management</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-graph-up text-danger"></i><strong>Python - Kaggle</strong></div><span class="cert-badge">Kaggle</span> <span class="cert-badge">Issued Apr 2025</span><p class="small mt-1 mb-1">Python fundamentals, data handling, scripting for data projects</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-reception-4 text-info"></i><strong>Python Programming (NSDC) - Reliance Foundation</strong></div><span class="cert-badge">Reliance Foundation</span> <span class="cert-badge">Issued Mar 2025</span><p class="small mt-1 mb-1">Python, Debugging, File Handling, Problem Solving</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-rocket-takeoff text-warning"></i><strong>SPACE SCIENCE AND TECHNOLOGY AWARENESS (START)</strong></div><span class="cert-badge">ISRO</span> <span class="cert-badge">Issued Jan 2025</span><p class="small mt-1 mb-1">Space Science, Satellite Technology, Astrophysics, Remote Sensing</p><a href="#" class="credential-link" target="_blank">Credential ID: 461aa81d476d520017a99e3e4b0108ec <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-google text-danger"></i><strong>Crash Course on Python</strong></div><span class="cert-badge">Google</span> <span class="cert-badge">Issued Jan 2025</span><p class="small mt-1 mb-1">Python, Debugging, Automation</p><a href="#" class="credential-link" target="_blank">Credential ID: 5K8P49D9ARGN <i class="bi bi-box-arrow-up-right ms-1"></i></a></div><div class="mb-3 p-2 border-bottom border-light"><div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-lightning-charge-fill text-secondary"></i><strong>Electrical Systems: Communications and Data</strong></div><span class="cert-badge">LinkedIn</span> <span class="cert-badge">Issued Oct 2024</span><p class="small mt-1 mb-1">Mechanical, Electrical, and Plumbing (MEP)</p><a href="#" class="credential-link" target="_blank">View certificate <i class="bi bi-box-arrow-up-right ms-1"></i></a></div></div></div></div></div></div></section>
 
-  <section id="contact" class="py-5"><div class="container"><div class="row justify-content-center"><div class="col-lg-8" data-aos="zoom-in"><div class="contact-glass p-4 p-md-5 text-center"><h2 class="fw-bold mb-3" style="color: var(--accent);"><i class="bi bi-chat-dots-fill"></i> Let’s Connect</h2><p class="text-secondary mb-4">I'm open to opportunities, collaborations, or just a tech chat.</p><div class="row justify-content-center gy-4 mb-4"><div class="col-sm-6"><div class="glass-card p-3"><i class="bi bi-envelope fs-2" style="color: var(--accent);"></i><br><a href="mailto:jonesmoshekofficial@gmail.com" class="text-decoration-none text-primary">jonesmoshekofficial@gmail.com</a></div></div><div class="col-sm-6"><div class="glass-card p-3"><i class="bi bi-telephone fs-2" style="color: var(--accent);"></i><br><a href="tel:+919500434636" class="text-decoration-none text-primary">+91 9500434636</a></div></div></div><div class="mt-2"><div class="input-group mb-3 w-75 mx-auto" style="flex-direction: column; align-items: stretch;"><input type="text" id="waMessage" class="form-control rounded-pill ps-3 bg-transparent border-secondary mb-2" placeholder="Write a quick message..." style="background: var(--bg-card);"><button onclick="sendWhatsApp()" class="btn btn-primary-custom rounded-pill px-4 w-100">WhatsApp <i class="bi bi-whatsapp"></i></button></div></div><div class="social-links mt-4 d-flex justify-content-center gap-3 flex-wrap"><a href="https://github.com/MOSHEK077" target="_blank" class="social-icon-circle"><i class="bi bi-github fs-5"></i></a><a href="https://www.linkedin.com/in/msjones07/" target="_blank" class="social-icon-circle"><i class="bi bi-linkedin fs-5"></i></a><a href="https://x.com/ShajuJones" target="_blank" class="social-icon-circle"><i class="bi bi-twitter-x fs-5"></i></a><a href="https://www.youtube.com/@Jonesmusic07" target="_blank" class="social-icon-circle"><i class="bi bi-youtube fs-5"></i></a><a href="https://discord.com/channels/@me" target="_blank" class="social-icon-circle"><i class="bi bi-discord fs-5"></i></a></div></div></div></div></div></section>
+  <section id="contact" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="zoom-in">
+          <div class="contact-glass p-4 p-md-5 text-center">
+            <h2 class="fw-bold mb-3" style="color: var(--accent);"><i class="bi bi-chat-dots-fill"></i> Let’s Connect</h2>
+            <p class="text-secondary mb-4">I'm open to opportunities, collaborations, or just a tech chat.</p>
+            <div class="row justify-content-center gy-4 mb-4">
+              <div class="col-sm-6"><div class="glass-card p-3"><i class="bi bi-envelope fs-2" style="color: var(--accent);"></i><br><a href="mailto:jonesmoshekofficial@gmail.com" class="text-decoration-none text-primary">jonesmoshekofficial@gmail.com</a></div></div>
+              <div class="col-sm-6"><div class="glass-card p-3"><i class="bi bi-telephone fs-2" style="color: var(--accent);"></i><br><a href="tel:+919500434636" class="text-decoration-none text-primary">+91 9500434636</a></div></div>
+            </div>
+            <!-- Simple rectangular WhatsApp input - fixed size, no auto-resize -->
+            <div class="whatsapp-input-group">
+              <input type="text" id="waMessage" class="whatsapp-input" placeholder="Write your message here...">
+              <button onclick="sendWhatsApp()" class="send-btn-wa">Send via WhatsApp <i class="bi bi-whatsapp"></i></button>
+            </div>
+            <div class="social-links mt-4 d-flex justify-content-center gap-3 flex-wrap">
+              <a href="https://github.com/MOSHEK077" target="_blank" class="social-icon-circle"><i class="bi bi-github fs-5"></i></a>
+              <a href="https://www.linkedin.com/in/msjones07/" target="_blank" class="social-icon-circle"><i class="bi bi-linkedin fs-5"></i></a>
+              <a href="https://x.com/ShajuJones" target="_blank" class="social-icon-circle"><i class="bi bi-twitter-x fs-5"></i></a>
+              <a href="https://www.youtube.com/@Jonesmusic07" target="_blank" class="social-icon-circle"><i class="bi bi-youtube fs-5"></i></a>
+              <a href="https://discord.com/channels/@me" target="_blank" class="social-icon-circle"><i class="bi bi-discord fs-5"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="py-4 mt-5"><div class="container text-center"><p class="text-secondary small mb-0">© 2026 Moshek Shaju Jones J — Crafted with <i class="bi bi-heart-fill text-danger"></i> for Java & Innovation | <i class="bi bi-patch-check-fill text-primary"></i> Verified Portfolio | <i class="bi bi-linkedin"></i> 1,000+ connections</p></div></footer>
 
 <a href="#contact" class="hire-me-float"><i class="bi bi-briefcase-fill"></i> Hire Me</a>
 
+<!-- Chatbot Widget (unchanged) -->
 <div class="chatbot-widget">
   <div class="chat-toggle" id="chatToggle"><i class="bi bi-chat-dots-fill"></i></div>
   <div class="chat-window" id="chatWindow">
     <div class="chat-header"><span><i class="bi bi-robot"></i> JX Assistant</span><button id="chatClose"><i class="bi bi-x-lg"></i></button></div>
     <div class="chat-messages" id="chatMessages"><div class="message bot-message">🤖 Hi! I'm JX Assistant, your guide to Moshek's portfolio. Click any of my answers to copy them. Try asking:</div></div>
     <div class="suggestions" id="suggestions"></div>
-    <div class="chat-input-area"><input type="text" id="chatInput" placeholder="Ask me anything..."><button id="chatSend">Send</button></div>
+    <div class="chat-input-area"><input type="text" id="chatInput" placeholder="Type a message..."><button id="chatSend"><i class="bi bi-send-fill"></i></button></div>
   </div>
 </div>
 <div id="copyToast" class="copy-toast">📋 Copied to clipboard</div>
@@ -367,11 +424,15 @@
   window.addEventListener("scroll", animateSkills);
   window.addEventListener("load", animateSkills);
   
-  function sendWhatsApp() { let msg = document.getElementById("waMessage").value.trim(); if(msg === "") { alert("Please enter a message"); return; } window.open(`https://wa.me/919500434636?text=${encodeURIComponent(msg)}`, "_blank"); }
+  function sendWhatsApp() {
+    let msg = document.getElementById("waMessage").value.trim();
+    if (msg === "") { alert("Please enter a message"); return; }
+    window.open(`https://wa.me/919500434636?text=${encodeURIComponent(msg)}`, "_blank");
+  }
   window.sendWhatsApp = sendWhatsApp;
   window.addEventListener("scroll", () => { if(window.scrollY > 20) document.querySelector(".navbar")?.classList.add("scrolled"); else document.querySelector(".navbar")?.classList.remove("scrolled"); });
   
-  // Chatbot implementation (same as before but shorter for brevity)
+  // Chatbot (same as previous, fully functional)
   const chatToggleBtn = document.getElementById('chatToggle');
   const chatWindowDiv = document.getElementById('chatWindow');
   const chatCloseBtn = document.getElementById('chatClose');
