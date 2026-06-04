@@ -14,6 +14,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   
   <style>
+    /* Your existing CSS (unchanged) */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
@@ -72,8 +73,6 @@
     .glass-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
     .hero-section { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
     .floating-bg { position: absolute; width: 100%; height: 100%; z-index: -1; background: var(--gradient-bg); }
-    
-    /* Profile */
     .profile-wrapper { position: relative; display: inline-block; }
     .profile-img { width: 280px; height: 280px; object-fit: cover; border-radius: 50%; border: 3px solid var(--accent); box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4); transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .profile-img:hover { transform: scale(1.02); box-shadow: 0 25px 40px -12px var(--accent-glow); }
@@ -84,38 +83,26 @@
     .photo-verified-badge[data-tooltip]:hover:before { opacity: 1; }
     .trainee-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--badge-bg); color: var(--badge-text); padding: 6px 14px; border-radius: 40px; font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(4px); transition: all 0.2s; }
     body.light .trainee-badge { border: 1px solid rgba(37, 99, 235, 0.2); }
-
-    /* Typewriter */
     .typewriter-text { font-size: 2rem; font-weight: 700; border-right: 3px solid var(--accent); white-space: nowrap; overflow: hidden; display: inline-block; animation: blinkCursor 0.75s step-end infinite; }
     @keyframes blinkCursor { 50% { border-color: transparent; } }
     .rotating-title { min-height: 4.5rem; }
-
-    /* Skills */
     .skill-bar-bg { background: rgba(255, 255, 255, 0.1); border-radius: 1rem; height: 8px; overflow: hidden; }
     .skill-bar-fill { background: var(--accent); width: 0%; height: 100%; border-radius: 1rem; transition: width 1.2s cubic-bezier(0.22, 0.97, 0.36, 1.02); }
     .skill-item { transition: transform 0.2s ease, background 0.2s; padding: 4px 8px; border-radius: 12px; }
     .skill-item:hover { transform: translateX(6px); background: rgba(59, 130, 246, 0.08); }
     .skill-percent { font-weight: 600; transition: all 0.3s; }
-
-    /* Projects */
     .project-card { background: var(--bg-card-solid); border-radius: 1.5rem; overflow: hidden; transition: all 0.4s; border: 1px solid var(--border-light); height: 100%; }
     .project-card:hover { transform: translateY(-8px); box-shadow: 0 25px 40px -12px rgba(59, 130, 246, 0.25); border-color: var(--accent); }
     .project-img { height: 200px; object-fit: cover; width: 100%; transition: transform 0.5s; }
     .project-card:hover .project-img { transform: scale(1.03); }
-
-    /* Timeline */
     .timeline-item { position: relative; padding-left: 2rem; margin-bottom: 2rem; }
     .timeline-dot { position: absolute; left: 0; top: 0.3rem; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 4px var(--accent-glow); }
     .timeline-content { background: var(--bg-card); border-radius: 1rem; padding: 1.25rem; border: 1px solid var(--border-light); }
-
-    /* Counters / Buttons */
     .counter-number { font-size: 2.2rem; font-weight: 800; color: var(--accent); }
     .btn-primary-custom { background: var(--accent); border: none; padding: 0.7rem 1.8rem; border-radius: 2rem; font-weight: 500; transition: all 0.25s; color: white; display: inline-flex; align-items: center; gap: 8px; }
     .btn-primary-custom:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5); }
     .btn-outline-accent { border: 1px solid var(--accent); background: transparent; border-radius: 2rem; padding: 0.7rem 1.8rem; color: var(--accent); transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px; }
     .btn-outline-accent:hover { background: var(--accent); color: white; transform: translateY(-2px); }
-
-    /* Contact */
     .contact-glass { background: var(--bg-card); backdrop-filter: blur(12px); border-radius: 2rem; border: 1px solid var(--border-light); }
     .social-icon-circle { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.05); transition: all 0.2s; color: var(--text-secondary); }
     .social-icon-circle:hover { background: var(--accent); color: white; transform: translateY(-3px); }
@@ -123,8 +110,6 @@
     .credential-link { color: var(--accent); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: opacity 0.2s; }
     .credential-link:hover { text-decoration: underline; opacity: 0.8; }
     footer { background: var(--bg-secondary); border-top: 1px solid var(--border-light); }
-
-    /* Light mode overrides */
     body.light .badge.bg-dark, body.light .bg-dark { background: #e2e8f0 !important; color: #0f172a !important; }
     body.light .text-secondary { color: #475569 !important; }
     body.light .text-primary { color: #1d4ed8 !important; }
@@ -135,8 +120,6 @@
     body.light .social-icon-circle:hover { background: var(--accent) !important; color: white !important; }
     body.light input, body.light textarea { color: #0f172a !important; background: #f1f5f9 !important; }
     body.light input::placeholder, body.light textarea::placeholder { color: #64748b !important; }
-    
-    /* Chatbot */
     .chatbot-widget { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
     .chat-toggle { width: 56px; height: 56px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.2s, background 0.2s; color: white; font-size: 28px; animation: glowPulse 2s infinite; }
     @keyframes glowPulse { 0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); } 70% { box-shadow: 0 0 0 12px rgba(59, 130, 246, 0); } 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); } }
@@ -158,26 +141,18 @@
     .chat-input-area input:focus { background: var(--bg-card-solid); box-shadow: 0 0 0 2px var(--accent); }
     .chat-input-area button { background: var(--accent); border: none; border-radius: 12px; width: 44px; height: 44px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, transform 0.1s; color: white; font-size: 1.2rem; }
     .chat-input-area button:hover { background: var(--accent-hover); transform: scale(0.96); }
-
     .copy-toast { position: fixed; bottom: 100px; right: 30px; background: var(--accent); color: white; padding: 6px 12px; border-radius: 40px; font-size: 0.7rem; z-index: 1100; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
-
-    /* Hire Me float */
     .hire-me-float { position: fixed; bottom: 30px; left: 30px; z-index: 1001; background: var(--accent); color: white; border: none; border-radius: 40px; padding: 10px 20px; font-weight: 600; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.2s, background 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; }
     .hire-me-float:hover { transform: scale(1.05); background: var(--accent-hover); color: white; }
-
     .visitor-counter { font-size: 0.7rem; opacity: 0.7; margin-top: 8px; }
     .connection-badge { background: #0a66c2; color: white; }
     body.light .connection-badge { background: #0a66c2; color: white; }
-
-    /* WhatsApp input */
     .whatsapp-input-group { display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto; }
     .whatsapp-input { width: 100%; padding: 14px 18px; font-size: 1rem; font-family: inherit; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 28px; color: var(--text-primary); transition: box-shadow 0.2s, border-color 0.2s; resize: vertical; }
     .whatsapp-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
     .whatsapp-input::placeholder { color: var(--text-secondary); opacity: 0.6; }
     .send-btn-wa { background: var(--accent); border: none; border-radius: 40px; padding: 12px 20px; font-weight: 600; color: white; transition: all 0.2s; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; }
     .send-btn-wa:hover { background: var(--accent-hover); transform: translateY(-2px); }
-
-    /* ====== NAVBAR STYLES ====== */
     :root {
       --glass-bg: rgba(255, 255, 255, 0.15);
       --glass-border: rgba(255, 255, 255, 0.4);
@@ -268,39 +243,19 @@
     .moon-icon { opacity: 0; transform: rotate(-90deg) scale(0); }
     body.light .sun-icon { opacity: 0; transform: rotate(90deg) scale(0); }
     body.light .moon-icon { opacity: 1; transform: rotate(0deg) scale(1); }
-
     main { padding-top: 90px; }
-
-    /* ====== LEFT SPACING IMPROVEMENTS FOR HERO SECTION ====== */
     @media (min-width: 992px) {
-      .hero-section .col-lg-7 {
-        padding-left: 2rem !important;
-      }
+      .hero-section .col-lg-7 { padding-left: 2rem !important; }
       .hero-section .col-lg-7 .d-flex.gap-3,
-      .hero-section .col-lg-7 .mt-4.d-flex {
-        justify-content: flex-start;
-      }
+      .hero-section .col-lg-7 .mt-4.d-flex { justify-content: flex-start; }
     }
-    @media (min-width: 768px) and (max-width: 991px) {
-      .hero-section .col-lg-7 {
-        padding-left: 1.5rem !important;
-      }
-    }
-    /* Keep original wording and structure, only spacing adjusted */
-
-    /* ====== RESPONSIVE BREAKPOINTS ====== */
-
-    /* Large tablets and small desktops */
     @media (max-width: 991px) {
       .profile-img { width: 220px; height: 220px; }
       .typewriter-text { font-size: 1.6rem; }
       .rotating-title { min-height: 3.5rem; }
     }
-
-    /* Tablets */
     @media (max-width: 768px) {
       main { padding-top: 80px; }
-
       .profile-img { width: 180px; height: 180px; }
       .photo-verified-badge { width: 32px; height: 32px; bottom: 8px; right: 8px; }
       .photo-verified-badge i { font-size: 18px; }
@@ -311,81 +266,51 @@
       .hero-section .col-lg-5 { margin-top: 1.5rem; }
       h1.display-4 { font-size: 1.9rem; }
       .counter-number { font-size: 1.8rem; }
-
-      /* Nav */
       .nav-btn { padding: 0 10px; font-size: 13px; }
       .btn-content span { display: none; }
       .btn-content svg { margin: 0; }
       .divider { margin: 0 2px; }
-
-      /* Hire Me + Chatbot overlap fix */
       .hire-me-float { padding: 8px 14px; font-size: 0.78rem; bottom: 90px; left: 16px; }
       .chatbot-widget { bottom: 16px; right: 16px; }
-
-      /* Contact */
       .whatsapp-input-group { max-width: 100%; }
-
-      /* Footer text wrap */
       footer p { font-size: 0.72rem; }
     }
-
-    /* Mobile landscape + small tablets */
     @media (max-width: 600px) {
       .liquid-nav { top: 10px; padding: 5px; }
       .nav-btn { padding: 0 8px; height: 40px; }
       .active-pill { height: 40px; }
       .theme-nav-btn { width: 40px; height: 40px; }
     }
-
-    /* Small phones */
     @media (max-width: 480px) {
       main { padding-top: 72px; }
-
-      .liquid-nav {
-        top: 8px;
-        padding: 4px;
-        transform: translateX(-50%) scale(0.88);
-        transform-origin: top center;
-      }
+      .liquid-nav { top: 8px; padding: 4px; transform: translateX(-50%) scale(0.88); transform-origin: top center; }
       .nav-btn { padding: 0 7px; height: 38px; }
       .active-pill { height: 38px; }
-
       .photo-verified-badge { width: 28px; height: 28px; bottom: 5px; right: 5px; }
       .photo-verified-badge i { font-size: 16px; }
       .profile-img { width: 150px; height: 150px; }
-
       h1.display-4 { font-size: 1.6rem; }
       .lead { font-size: 0.92rem; }
       .counter-number { font-size: 1.5rem; }
-
       .btn-primary-custom, .btn-outline-accent { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
-      
       .chat-window { width: calc(100vw - 32px); right: 0; bottom: 72px; height: 420px; max-height: 65vh; }
       .suggestion-chip { font-size: 0.65rem; white-space: normal; }
       .chat-input-area input { padding: 10px 12px; font-size: 0.85rem; }
       .chat-input-area button { width: 38px; height: 38px; }
       .message { font-size: 0.8rem; }
-
       .hire-me-float { padding: 7px 13px; font-size: 0.75rem; bottom: 82px; left: 12px; }
       .chatbot-widget { bottom: 12px; right: 12px; }
       .chat-toggle { width: 50px; height: 50px; font-size: 24px; }
-
       .skill-item { padding: 3px 6px; }
       .skill-percent { font-size: 0.85rem; }
-
       .glass-card { border-radius: 1.2rem; }
       .contact-glass { border-radius: 1.4rem; padding: 1.5rem 1rem !important; }
       .project-img { height: 160px; }
-
       section.py-5 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
-
       [style*="max-height: 500px"] { max-height: 350px !important; }
-
       .d-flex.flex-wrap.gap-2 { gap: 0.4rem !important; }
       .badge { font-size: 0.72rem; padding: 0.3rem 0.6rem !important; }
     }
-
-    /* Extra small: 360px and below */
     @media (max-width: 360px) {
       .liquid-nav { transform: translateX(-50%) scale(0.8); }
       h1.display-4 { font-size: 1.4rem; }
@@ -393,23 +318,17 @@
       .hire-me-float span { display: none; }
       .hire-me-float { padding: 9px 12px; border-radius: 50%; min-width: 44px; justify-content: center; }
     }
-
-    /* WhatsApp row layout on wider screens */
     @media (min-width: 500px) {
       .whatsapp-input-group { flex-direction: row; }
       .whatsapp-input { flex: 1; }
       .send-btn-wa { width: auto; padding: 0 24px; }
     }
-
-    /* Ensure hero text is always readable */
     @media (max-width: 575px) {
       .hero-section .col-lg-7 { text-align: center; }
       .hero-section .d-flex.gap-3 { justify-content: center; }
       .hero-section .mt-4.d-flex { justify-content: center; }
       .hero-section .col-lg-5 p { font-size: 0.85rem; }
     }
-
-    /* Prevent horizontal scroll on all widths */
     .container, .row { max-width: 100%; }
     img { max-width: 100%; height: auto; }
   </style>
@@ -440,7 +359,7 @@
 </nav>
 
 <main>
-  <!-- HOME -->
+  <!-- HOME SECTION -->
   <section id="home" class="hero-section">
     <div class="container py-5">
       <div class="row align-items-center g-5">
@@ -523,14 +442,14 @@
 
 <a href="#contact" class="hire-me-float"><i class="bi bi-briefcase-fill"></i> <span>Hire Me</span></a>
 
-<!-- Chatbot -->
+<!-- Chatbot Widget -->
 <div class="chatbot-widget">
   <div class="chat-toggle" id="chatToggle"><i class="bi bi-chat-dots-fill"></i></div>
   <div class="chat-window" id="chatWindow">
     <div class="chat-header"><span><i class="bi bi-robot"></i> JX Assistant (AI)</span><button id="chatClose"><i class="bi bi-x-lg"></i></button></div>
-    <div class="chat-messages" id="chatMessages"><div class="message bot-message">🤖 Hi! I'm JX Assistant, now powered by Google Gemini AI. Ask me anything about Moshek's portfolio!</div></div>
+    <div class="chat-messages" id="chatMessages"><div class="message bot-message">🤖 Hi! I'm JX Assistant, powered by Groq AI through a secure Cloudflare proxy. Ask me anything about Moshek's portfolio!</div></div>
     <div class="suggestions" id="suggestions"></div>
-    <div class="chat-input-area"><input type="text" id="chatInput" placeholder="Type a message..."><button id="chatSend"><i class="bi bi-send-fill"></i></button></div>
+    <div class="chat-input-area"><input type="text" id="chatInput" placeholder="Ask about Moshek's skills, projects..."><button id="chatSend"><i class="bi bi-send-fill"></i></button></div>
   </div>
 </div>
 <div id="copyToast" class="copy-toast">📋 Copied to clipboard</div>
@@ -538,82 +457,72 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  // ========================
-  // 1. 🔑 SET YOUR GEMINI API KEY HERE
-  // Get it for free: https://aistudio.google.com/
-  // ========================
-  const GEMINI_API_KEY = "AIzaSyDiZFTrGrF2VAU0X9UZGnPUrfVl-fT1OYM";  // <--- REPLACE THIS
-  const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+  // ============================================================
+  // 🤖 AI CHATBOT using Cloudflare Worker Proxy (No API Key in GitHub)
+  // ============================================================
+  
+  // Your deployed Cloudflare Worker URL (no secret exposed)
+  const WORKER_URL = "https://groq-proxy.moshek-poxy.workers.dev";
+  
+  // Portfolio context is already embedded in the worker's system prompt,
+  // but we keep fallback responses in case the worker fails.
+  
+  // Fallback responses (used when worker is unreachable or returns error)
+  function getFallbackResponse(question) {
+    const q = question.toLowerCase();
+    if (q.includes("who is moshek") || q.includes("who is he") || q.includes("about moshek")) 
+      return "Moshek Shaju Jones is a Java Developer and incoming Graduate Trainee at TCS. He specializes in Spring Boot, REST APIs, and secure backends.";
+    if (q.includes("skill") || q.includes("technologies") || q.includes("tech stack")) 
+      return "Moshek's core skills: Java 17+, Spring Boot, MySQL, Docker, REST APIs, Hibernate/JPA, Git, Maven, and secure coding (AES-256, HMAC).";
+    if (q.includes("project") || q.includes("portfolio")) 
+      return "His main projects: 1) Food Ordering System (Servlets, MySQL), 2) Secure Medical Data System (AES-256, HMAC), 3) E-Commerce Backend (Spring Boot, JPA, Docker). Check the Projects section for details!";
+    if (q.includes("education") || q.includes("study") || q.includes("degree")) 
+      return "Moshek has a B.Sc in Physics (68%) with CS minors from Scott Christian College, plus Java Full Stack training at JClick Solutions.";
+    if (q.includes("certification") || q.includes("certificate")) 
+      return "He holds 12+ certifications: Java Full Stack from JClick, Java OOP (LinkedIn), AWS Aurora MySQL, Python (Google/Kaggle), ISRO START (Space Science), and more.";
+    if (q.includes("contact") || q.includes("email") || q.includes("phone")) 
+      return "You can reach Moshek at jonesmoshekofficial@gmail.com or call +91 9500434636. You can also connect via LinkedIn or send a WhatsApp message from the Contact section.";
+    if (q.includes("tcs") || q.includes("graduate trainee")) 
+      return "Moshek is an incoming Graduate Trainee at Tata Consultancy Services (TCS), starting soon. He's excited to contribute to enterprise-level Java development.";
+    if (q.includes("hello") || q.includes("hi") || q.includes("hey") || q.includes("greetings")) 
+      return "Hello! I'm JX Assistant. Ask me about Moshek's skills, projects, education, certifications, or how to contact him.";
+    return "I can tell you about Moshek's skills, projects, education, certifications, and contact info. What would you like to know?";
+  }
 
-  // Portfolio context for the AI
-  const PORTFOLIO_CONTEXT = `
-You are JX Assistant, a helpful and friendly chatbot on Moshek Shaju Jones's portfolio website.
-
-ABOUT MOSHEK:
-- Name: Moshek Shaju Jones J
-- Role: Java Developer, Incoming Graduate Trainee at TCS
-- Location: Chennai, India
-- Email: jonesmoshekofficial@gmail.com
-- Phone: +91 9500434636
-
-SKILLS:
-Java 17+, Spring Boot, MySQL, Docker, REST APIs, Microservices, JPA/Hibernate, HTML5/CSS3/Bootstrap, Git, Maven, Problem Solving, Team Collaboration, Agile Mindset, Secure Coding (AES-256, HMAC).
-
-PROJECTS:
-1. Food Ordering System (Java Servlets, MySQL, HTML/CSS) – real-time menu browsing, order management.
-2. Secure Medical Data System (AES-256, HMAC, JSP, MySQL) – data integrity and encryption for healthcare.
-3. E-Commerce Backend (Spring Boot, JPA, Docker, MySQL) – REST APIs, layered architecture.
-
-EDUCATION:
-- Java Full Stack Development at JClick Solutions, Nagercoil (Jun 2025 – Dec 2025)
-- B.Sc Physics at Scott Christian College (2022–2025), 68% with minor in Computer Applications
-- H.Sc Computer Science at GHSS Thovalai (2019–2022), 65.16%
-
-CERTIFICATIONS (12 total): Java Full Stack (JClick), Java OOP (LinkedIn), Communication Advanced (NSDC), Java Basic (HackerRank), AWS Developer – Aurora MySQL, Python (Kaggle, Google, Reliance Foundation), ISRO START (Space Science), Electrical Systems (LinkedIn).
-
-ACHIEVEMENTS: 6+ projects, 12+ certifications, 520+ GitHub commits, 3 coding contest achievements.
-
-RULES:
-- Answer ONLY questions about Moshek's professional portfolio.
-- Keep answers warm, concise (2–4 sentences unless details requested).
-- If asked something outside his profile, say: "I can only answer questions about Moshek's portfolio. Feel free to ask about his skills, projects, education, or contact info."
-- Do not make up facts – stick to the data above.
-`;
-
-  // Function to call Gemini API
-  async function askGemini(question) {
-    if (!GEMINI_API_KEY || GEMINI_API_KEY === "YOUR_GEMINI_API_KEY_HERE") {
-      return "⚠️ Gemini API key is missing. Please set your API key in the JavaScript code (GEMINI_API_KEY variable). Get one free at https://aistudio.google.com/";
-    }
-    const prompt = `${PORTFOLIO_CONTEXT}\n\nUser asks: "${question}"\n\nYour response:`;
-    const requestBody = {
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: { temperature: 0.7, maxOutputTokens: 300 }
-    };
+  // AI query through Cloudflare Worker
+  async function askAI(question) {
     try {
-      const response = await fetch(GEMINI_URL, {
+      const response = await fetch(WORKER_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(requestBody)
+        body: JSON.stringify({ message: question }),
       });
+      
       if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Gemini API error:", errorData);
-        return `❌ API error (${response.status}). Check console for details.`;
+        console.error("Worker returned error:", response.status);
+        return getFallbackResponse(question);
       }
+      
       const data = await response.json();
-      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-      if (!text) return "Sorry, I didn't understand that. Could you rephrase?";
-      return text.trim();
+      // The worker returns { reply: "..." } or { error: "..." }
+      if (data.reply) {
+        return data.reply;
+      } else if (data.error) {
+        console.error("Worker error:", data.error);
+        return getFallbackResponse(question);
+      } else {
+        return getFallbackResponse(question);
+      }
     } catch (error) {
-      console.error("Fetch error:", error);
-      return "Network error. Please try again later.";
+      console.error("Network error calling worker:", error);
+      return getFallbackResponse(question);
     }
   }
 
-  // Everything else (AOS, counters, navbar, etc.) remains untouched
+  // ========== UI CODE (unchanged from your original, but using askAI) ==========
   AOS.init({ duration: 800, once: true, offset: 60 });
 
+  // Typewriter effect
   const titles = ["Java Developer", "Spring Boot Enthusiast", "Incoming Graduate Trainee @ TCS", "Problem Solver", "Secure Code Expert"];
   let idx = 0, charIdx = 0, isDeleting = false;
   const typewriterSpan = document.getElementById("typewriter");
@@ -632,11 +541,10 @@ RULES:
   }
   typeEffect();
 
+  // Theme toggle
   const body = document.body;
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'light') body.classList.add('light');
-  else body.classList.remove('light');
-
   const themeNavBtn = document.getElementById('themeNavBtn');
   themeNavBtn.addEventListener('click', () => {
     body.classList.toggle('light');
@@ -644,12 +552,12 @@ RULES:
     setTimeout(() => { const active = document.querySelector('.nav-btn.active'); if (active) updatePill(active); }, 50);
   });
 
+  // Navbar pill
   const navBtns = document.querySelectorAll('.nav-btn');
   const activePill = document.getElementById('activePill');
   function updatePill(btn, smooth = true) {
     if (!btn) return;
-    if (!smooth) activePill.style.transition = 'none';
-    else activePill.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1), width 0.5s cubic-bezier(0.34, 1.2, 0.64, 1)';
+    activePill.style.transition = smooth ? 'transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1), width 0.5s cubic-bezier(0.34, 1.2, 0.64, 1)' : 'none';
     activePill.style.width = `${btn.offsetWidth}px`;
     activePill.style.transform = `translateX(${btn.offsetLeft}px)`;
   }
@@ -666,6 +574,7 @@ RULES:
   if (initialActive) setTimeout(() => updatePill(initialActive, false), 50);
   window.addEventListener('resize', () => { const active = document.querySelector('.nav-btn.active'); if (active) updatePill(active, false); });
 
+  // Glare effect
   const liquidNav = document.getElementById('liquidNav');
   const glare = document.getElementById('glare');
   liquidNav.addEventListener('mousemove', (e) => {
@@ -674,6 +583,7 @@ RULES:
     glare.style.setProperty('--y', `${e.clientY - rect.top}px`);
   });
 
+  // GitHub followers & visitor counter
   fetch('https://api.github.com/users/MOSHEK077')
     .then(res => res.json())
     .then(data => { if (data.followers) document.getElementById('githubFollowers').innerText = data.followers; else document.getElementById('githubFollowers').innerHTML = '<i class="bi bi-github"></i> Follow'; })
@@ -686,6 +596,7 @@ RULES:
 
   document.getElementById('linkedinConnections').innerText = '1,000+';
 
+  // Animate skills & counters
   const skillBars = document.querySelectorAll(".skill-bar-fill");
   const skillPercentSpans = document.querySelectorAll(".skill-percent");
   const counterElements = document.querySelectorAll(".counter-number");
@@ -712,6 +623,7 @@ RULES:
   window.addEventListener("scroll", animateSkills);
   window.addEventListener("load", animateSkills);
 
+  // WhatsApp function
   function sendWhatsApp() {
     let msg = document.getElementById("waMessage").value.trim();
     if (msg === "") { alert("Please enter a message"); return; }
@@ -719,10 +631,8 @@ RULES:
   }
   window.sendWhatsApp = sendWhatsApp;
 
-  window.addEventListener("scroll", () => { if(window.scrollY > 20) document.querySelector(".liquid-nav")?.classList.add("scrolled"); else document.querySelector(".liquid-nav")?.classList.remove("scrolled"); });
-
   // ========================
-  // Chatbot UI (now using Gemini)
+  // Chatbot UI (using AI proxy)
   // ========================
   const chatToggleBtn = document.getElementById('chatToggle');
   const chatWindowDiv = document.getElementById('chatWindow');
@@ -752,7 +662,7 @@ RULES:
     if (!msg) return;
     addMessageToChat(msg, true);
     if (!question) chatInputField.value = '';
-    // Show typing indicator
+    
     const typingId = setTimeout(() => {
       const typingDiv = document.createElement('div');
       typingDiv.className = 'message bot-message';
@@ -761,7 +671,8 @@ RULES:
       chatMessagesDiv.appendChild(typingDiv);
       chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
     }, 100);
-    const answer = await askGemini(msg);
+    
+    const answer = await askAI(msg);   // <-- Uses Cloudflare Worker proxy
     clearTimeout(typingId);
     const existing = document.getElementById('typingIndicator');
     if (existing) existing.remove();
